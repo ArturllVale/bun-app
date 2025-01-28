@@ -58,7 +58,7 @@ const Menu: React.FC = () => {
           {isLoggedIn && user ? (
             <>
               <a className="nav-link" href="/account">Minha Conta</a>
-              <a className="nav-link" href="#" onClick={handleLogout}>Logout</a>
+              <a className="nav-link" href="/login" onClick={handleLogout}>Logout</a>
             </>
           ) : (
             <>
