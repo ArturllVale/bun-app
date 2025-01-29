@@ -120,6 +120,7 @@ const Menu: React.FC = () => {
           <li>
             <a href="/wiki" className={getLinkClass('/wiki')}><i className="bi bi-wikipedia icon-link" id='icon-size'></i> <span className="menu-text">Wiki</span></a>
           </li>
+          <hr className='linha' />
           {isLoggedIn && user ? (
             <>
               <li>

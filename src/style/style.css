@@ -26,6 +26,10 @@ hr {
     color: #FFFFFF !important;
 }
 
+.linha {
+  margin-top: 10px !important;
+}
+
 ul li {
   font-size: 1rem;
 }
