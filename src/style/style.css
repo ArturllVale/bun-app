@@ -8,7 +8,7 @@
   --primary-color: #007bff;
   --primary-color-hover: #0056b3;
   --link-color: #ffffff;
-  --link-hover-color: #007bff;
+  --link-hover-color: #18283B;
 }
 
 html, body {
@@ -38,7 +38,7 @@ html, body {
 
 .login-box h2 {
   margin-bottom: 1.5rem;
-  color: var(--link-color);
+  color: var(--link-hover-color);
 }
 
 .input-group {
@@ -197,7 +197,7 @@ html, body {
 .sidebar-nav li a:hover {
   text-decoration: none;
   color: var(--link-hover-color);
-  background: rgba(255, 255, 255, 0.2);
+  background:rgba(255, 255, 255, 0.59);
 }
 
 .sidebar-nav li a:active,

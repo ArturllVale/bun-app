@@ -6,6 +6,9 @@ import { handleLogout } from './Logout';
 const Menu: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState<{ userid: string } | null>(null);
+  const [isCollapsed] = useState(() => {
+    return localStorage.getItem('isMenuCollapsed') === 'true';
+  });
 
   const updateLoginStatus = async () => {
     const token = localStorage.getItem('token');
@@ -40,27 +43,55 @@ const Menu: React.FC = () => {
     };
   }, []);
 
-  const toggleMenu = () => {
-    document.getElementById('wrapper')?.classList.toggle('toggled');
-    document.querySelectorAll('#icon-size').forEach(icon => {
-      icon.classList.toggle('icon-sized');
-    });
-    const botaoMenu = document.getElementById('botao-menu');
-
-    if (botaoMenu) {
-      botaoMenu.classList.toggle('toggled');
-      const icon = botaoMenu.querySelector('i'); // Seleciona o ícone dentro do botão
-      if (icon) {
-        icon.classList.toggle('fa-times');
-        icon.classList.toggle('fa-bars');
-      }
+  useEffect(() => {
+    if (isCollapsed) {
+      document.body.classList.add('menu-collapsed');
+      document.getElementById('wrapper')?.classList.add('toggled');
+      document.querySelectorAll('#icon-size').forEach(icon => {
+        icon.classList.add('icon-sized');
+      });
+      document.getElementById('botao-menu')?.classList.add('toggled');
+      document.querySelectorAll('.menu-text').forEach(text => {
+        text.classList.add('hidden');
+      });
+    } else {
+      document.body.classList.remove('menu-collapsed');
+      document.getElementById('wrapper')?.classList.remove('toggled');
+      document.querySelectorAll('#icon-size').forEach(icon => {
+        icon.classList.remove('icon-sized');
+      });
+      document.getElementById('botao-menu')?.classList.remove('toggled');
+      document.querySelectorAll('.menu-text').forEach(text => {
+        text.classList.remove('hidden');
+      });
     }
+  }, [isCollapsed]);
 
-    // Ocultar ou mostrar o texto do menu
-    document.querySelectorAll('.menu-text').forEach(text => {
-      text.classList.toggle('hidden');
-    });
-  };
+  // const toggleMenu = () => {
+  //   const newCollapsedState = !isCollapsed;
+  //   setIsCollapsed(newCollapsedState);
+  //   localStorage.setItem('isMenuCollapsed', newCollapsedState.toString());
+
+  //   document.getElementById('wrapper')?.classList.toggle('toggled', newCollapsedState);
+  //   document.querySelectorAll('#icon-size').forEach(icon => {
+  //     icon.classList.toggle('icon-sized', newCollapsedState);
+  //   });
+  //   const botaoMenu = document.getElementById('botao-menu');
+
+  //   if (botaoMenu) {
+  //     botaoMenu.classList.toggle('toggled', newCollapsedState);
+  //     const icon = botaoMenu.querySelector('i'); // Seleciona o ícone dentro do botão
+  //     if (icon) {
+  //       icon.classList.toggle('fa-times', !newCollapsedState);
+  //       icon.classList.toggle('fa-bars', newCollapsedState);
+  //     }
+  //   }
+
+  //   // Ocultar ou mostrar o texto do menu
+  //   document.querySelectorAll('.menu-text').forEach(text => {
+  //     text.classList.toggle('hidden', newCollapsedState);
+  //   });
+  // };
 
   const getLinkClass = (path: string) => {
     return window.location.pathname === path ? 'active' : '';
@@ -70,10 +101,11 @@ const Menu: React.FC = () => {
     <div>
       <div id="sidebar-wrapper">
         <ul className="sidebar-nav">
-          <li className="sidebar-brand">
-            <button className="btn btn-primary" id='botao-menu' type="button" onClick={toggleMenu}>
-              <i className="fas fa-times"></i>
-            </button>
+          <li className="sidebar-brand text-white">
+            {/* <button className="btn btn-primary" id='botao-menu' type="button" onClick={toggleMenu}>
+              <i className={`fas ${isCollapsed ? 'fa-bars' : 'fa-times'}`}></i>
+            </button> */}
+            MeuRO
           </li>
           <li>
             <a href="/" className={getLinkClass('/')}><i className="bi bi-house-fill icon-link" id='icon-size'></i> <span className="menu-text">Início</span></a>
