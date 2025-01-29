@@ -63,7 +63,7 @@ const Menu: React.FC = () => {
           ) : (
             <>
               <a className="nav-link" href="/login">Login</a>
-              <a className="nav-link" href="/nova-conta">Nova Conta</a>
+              <a className="nav-link" href="/register">Nova Conta</a>
             </>
           )}
         </div>

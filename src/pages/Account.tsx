@@ -38,7 +38,7 @@ const Account: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className='container'>
       <h2>Minha Conta</h2>
       <p>Bem-vindo, {user?.userid}!</p>
       <LogoutButton />

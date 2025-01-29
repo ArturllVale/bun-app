@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../style/style.css'; // Importa o arquivo CSS
 
 const Login: React.FC = () => {
   const [userid, setUserid] = useState('');

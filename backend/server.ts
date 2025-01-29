@@ -1,5 +1,6 @@
 // Importação das bibliotecas necessárias
-import express from 'express';
+import express, { Request, Response } from 'express';
+import { RequestHandler } from 'express';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -73,9 +74,6 @@ app.post('/login', (req, res) => {
   });
 });
 
-// Rota protegida para acessar a página "Minha Conta"
-import { Request, Response, RequestHandler } from 'express';
-
 // Handler para a rota protegida
 const minhaContaHandler: RequestHandler = (req: Request, res: Response): void => {
   const token = req.headers.authorization?.split(' ')[1];
@@ -100,6 +98,39 @@ const minhaContaHandler: RequestHandler = (req: Request, res: Response): void =>
 
 // Definição da rota protegida
 app.get('/minha-conta', minhaContaHandler);
+
+// Rota de registro
+app.post('/api/register', (req, res) => {
+  const { userid, user_pass, email, sex } = req.body;
+
+  if (!userid || !user_pass || !email || !sex) {
+    return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
+  }
+
+  if (user_pass.length < 8 || !/[a-zA-Z]/.test(user_pass) || !/[0-9]/.test(user_pass)) {
+    return res.status(400).json({ error: 'A senha deve ter pelo menos 8 caracteres e incluir letras e números' });
+  }
+
+  const checkUserQuery = 'SELECT * FROM login WHERE userid = ? OR email = ?';
+  db.query(checkUserQuery, [userid, email], (err, results: mysql.RowDataPacket[]) => {
+    if (err) {
+      return res.status(500).json({ error: 'Error checking user' });
+    }
+
+    if (results.length > 0) {
+      return res.status(400).json({ error: 'Usuário ou Email já Registrados!' });
+    }
+
+    const insertQuery = 'INSERT INTO login (userid, user_pass, email, sex) VALUES (?, ?, ?, ?)';
+    db.query(insertQuery, [userid, user_pass, email, sex], (err) => {
+      if (err) {
+        return res.status(500).json({ error: 'Erro ao registrar o usuário!' });
+      }
+
+      return res.status(201).json({ message: 'Usuário registrado com sucesso!' });
+    });
+  });
+});
 
 // Porta em que o servidor estará rodando
 const PORT = 3000;

@@ -4,6 +4,7 @@ import Account from './pages/Account';
 import App from './App';
 import { createRoot } from 'react-dom/client';
 import Menu from './components/Menu';
+import Register from './pages/Register';
 
 // Selecione o elemento raiz do seu aplicativo
 const container = document.getElementById('root');
@@ -13,11 +14,12 @@ if (container) {
   const root = createRoot(container);
   root.render(
     <Router>
-      <Menu items={[]} />
+      <Menu />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/login" element={<Login />} />
         <Route path="/account" element={<Account />} />
+        <Route path='/register' element={<Register />} />
       </Routes>
     </Router>
   );
