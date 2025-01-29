@@ -43,11 +43,11 @@ const Menu: React.FC = () => {
   return (
     <>
       <button className="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
-        Menu
+        <i className="fas fa-bars"></i> Menu
       </button>
       <div className="offcanvas offcanvas-start" tabIndex={-1} id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
         <div className="offcanvas-header">
-          <h5 className="offcanvas-title" id="offcanvasMenuLabel">Menu</h5>
+          <h5 className="offcanvas-title" id="offcanvasMenuLabel">MeuRO</h5>
           <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div className="offcanvas-body">
