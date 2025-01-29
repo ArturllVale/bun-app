@@ -18,6 +18,17 @@ html, body {
   overflow-x: hidden;
 }
 
+hr {
+    max-width: 78% !important;
+    margin-left: 25px !important;
+    margin-top: -10px !important;
+    color: #FFFFFF !important;
+}
+
+ul li {
+  font-size: 1.1rem;
+}
+
 .login-container {
   display: flex;
   justify-content: center;
@@ -230,7 +241,7 @@ html, body {
   }
 
   #sidebar-wrapper {
-    width: 250px;
+    width: 240px;
   }
 
   #wrapper.toggled #sidebar-wrapper {

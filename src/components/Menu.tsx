@@ -107,6 +107,7 @@ const Menu: React.FC = () => {
             </button> */}
             MeuRO
           </li>
+          <hr />
           <li>
             <a href="/" className={getLinkClass('/')}><i className="bi bi-house-fill icon-link" id='icon-size'></i> <span className="menu-text">Início</span></a>
           </li>
