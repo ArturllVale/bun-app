@@ -24,11 +24,11 @@ const Login: React.FC = () => {
         <h2>Login</h2>
         {error && <p className="error-message">{error}</p>}
         <div className="input-group">
-          <label>User ID:</label>
+          <label>Usuário</label>
           <input type="text" value={userid} onChange={(e) => setUserid(e.target.value)} />
         </div>
         <div className="input-group">
-          <label>Password:</label>
+          <label>Senha:</label>
           <input type="password" value={user_pass} onChange={(e) => setUserPass(e.target.value)} />
         </div>
         <button className="login-button" onClick={handleLogin}>Login</button>

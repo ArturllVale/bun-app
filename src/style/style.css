@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
 :root {
   --background: #ffffff;
   --navbar-dark-primary: #18283b;
@@ -5,7 +7,7 @@
   --font-family: 'Roboto', sans-serif;
   --primary-color: #007bff;
   --primary-color-hover: #0056b3;
-  --link-color: #333;
+  --link-color: #ffffff;
   --link-hover-color: #007bff;
 }
 
@@ -13,6 +15,7 @@ html, body {
   margin: 0;
   background: var(--background);
   font-family: var(--font-family);
+  overflow-x: hidden;
 }
 
 .login-container {
@@ -78,15 +81,6 @@ html, body {
   margin-bottom: 1rem;
 }
 
-.offcanvas-header {
-  background-color: var(--navbar-dark-primary);
-  color: var(--navbar-light-primary);
-}
-
-.offcanvas-body {
-  background-color: var(--background);
-}
-
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
@@ -97,11 +91,6 @@ html, body {
 
 .nav-link:hover {
   color: var(--link-hover-color);
-}
-
-.offcanvas-title {
-  font-size: 1.25rem;
-  font-weight: bold;
 }
 
 .register-container {
@@ -139,4 +128,178 @@ html, body {
   10% { opacity: 1; }
   90% { opacity: 1; }
   100% { opacity: 0; }
+}
+
+/* Toggle Styles */
+#wrapper {
+  padding-left: 0;
+  transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+  padding-left: 250px;
+}
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 230px;
+  padding-left: 11px;
+  width: 0;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: var(--navbar-dark-primary);
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  overflow-x: hidden;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  width: 250px;
+  overflow-x: hidden;
+}
+
+#page-content-wrapper {
+  width: 100%;
+  position: absolute;
+  padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+  position: absolute;
+  margin-right: -250px;
+}
+
+/* Sidebar Styles */
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 40px;
+}
+
+.sidebar-nav li a {
+  display: block;
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+.sidebar-nav li a:hover {
+  text-decoration: none;
+  color: var(--link-hover-color);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+  height: 65px;
+  font-size: 18px;
+  line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+  color: var(--link-color);
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+  color: var(--link-hover-color);
+  background: none;
+}
+
+@media (min-width: 768px) {
+  #wrapper {
+    padding-left: 250px;
+  }
+
+  #wrapper.toggled {
+    padding-left: 100px;
+  }
+
+  #sidebar-wrapper {
+    width: 250px;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    width: 100px;
+  }
+
+  #page-content-wrapper {
+    padding: 20px;
+    position: relative;
+  }
+
+  #wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-right: 0;
+  }
+}
+
+#botao-menu {
+  background-color: #d34f4f;
+  border-color: #d34f4f;
+  margin-left: 170px;
+  margin-top: -10px;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+}
+
+#botao-menu.toggled {
+  background-color:#478ec9;
+  border-color: #478ec9;
+  margin-left: 20px;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+}
+
+.icon-link {
+  padding-right: 10px;
+}
+
+#icon-size {
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+}
+
+#icon-size.icon-sized {
+  font-size: 25px;
+  margin-left: -5px;
+  margin-top: 8px;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+}
+
+.hidden {
+  display: none;
+  overflow-x: hidden !important;
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+}
+
+.active {
+  background-color: #FFFFFF; /* Cor de fundo */
+  color: #18283B !important; /* Cor do texto */
 }

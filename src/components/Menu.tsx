@@ -40,35 +40,75 @@ const Menu: React.FC = () => {
     };
   }, []);
 
+  const toggleMenu = () => {
+    document.getElementById('wrapper')?.classList.toggle('toggled');
+    document.querySelectorAll('#icon-size').forEach(icon => {
+      icon.classList.toggle('icon-sized');
+    });
+    const botaoMenu = document.getElementById('botao-menu');
+
+    if (botaoMenu) {
+      botaoMenu.classList.toggle('toggled');
+      const icon = botaoMenu.querySelector('i'); // Seleciona o ícone dentro do botão
+      if (icon) {
+        icon.classList.toggle('fa-times');
+        icon.classList.toggle('fa-bars');
+      }
+    }
+
+    // Ocultar ou mostrar o texto do menu
+    document.querySelectorAll('.menu-text').forEach(text => {
+      text.classList.toggle('hidden');
+    });
+  };
+
+  const getLinkClass = (path: string) => {
+    return window.location.pathname === path ? 'active' : '';
+  };
+
   return (
-    <>
-      <button className="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
-        <i className="fas fa-bars"></i> Menu
-      </button>
-      <div className="offcanvas offcanvas-start" tabIndex={-1} id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
-        <div className="offcanvas-header">
-          <h5 className="offcanvas-title" id="offcanvasMenuLabel">MeuRO</h5>
-          <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div className="offcanvas-body">
-          <a className="nav-link" href="/">Início</a>
-          <a className="nav-link" href="/informacoes">Informações</a>
-          <a className="nav-link" href="/downloads">Downloads</a>
-          <a className="nav-link" href="/wiki">Wiki</a>
+    <div>
+      <div id="sidebar-wrapper">
+        <ul className="sidebar-nav">
+          <li className="sidebar-brand">
+            <button className="btn btn-primary" id='botao-menu' type="button" onClick={toggleMenu}>
+              <i className="fas fa-times"></i>
+            </button>
+          </li>
+          <li>
+            <a href="/" className={getLinkClass('/')}><i className="bi bi-house-fill icon-link" id='icon-size'></i> <span className="menu-text">Início</span></a>
+          </li>
+          <li>
+            <a href="/informacoes" className={getLinkClass('/informacoes')}><i className="bi bi-info-square-fill icon-link" id='icon-size'></i> <span className="menu-text">Informações</span></a>
+          </li>
+          <li>
+            <a href="/downloads" className={getLinkClass('/downloads')}><i className="bi bi-cloud-arrow-down-fill icon-link" id='icon-size'></i> <span className="menu-text">Downloads</span></a>
+          </li>
+          <li>
+            <a href="/wiki" className={getLinkClass('/wiki')}><i className="bi bi-wikipedia icon-link" id='icon-size'></i> <span className="menu-text">Wiki</span></a>
+          </li>
           {isLoggedIn && user ? (
             <>
-              <a className="nav-link" href="/account">Minha Conta</a>
-              <a className="nav-link" href="/login" onClick={handleLogout}>Logout</a>
+              <li>
+                <a href="/account" className={getLinkClass('/account')}><i className="bi bi-person-circle icon-link" id='icon-size'></i> <span className="menu-text">Minha Conta</span></a>
+              </li>
+              <li>
+                <a href="/login" onClick={handleLogout} className={getLinkClass('/login')}><i className="bi bi-box-arrow-in-left icon-link" id='icon-size'></i> <span className="menu-text">Logout</span></a>
+              </li>
             </>
           ) : (
             <>
-              <a className="nav-link" href="/login">Login</a>
-              <a className="nav-link" href="/register">Nova Conta</a>
+              <li>
+                <a href="/login" className={getLinkClass('/login')}><i className="bi bi-box-arrow-in-right icon-link" id='icon-size'></i> <span className="menu-text">Login</span></a>
+              </li>
+              <li>
+                <a href="/register" className={getLinkClass('/register')}><i className="bi bi-person-fill-add icon-link" id='icon-size'></i> <span className="menu-text">Nova Conta</span></a>
+              </li>
             </>
           )}
-        </div>
+        </ul>
       </div>
-    </>
+    </div>
   );
 };
 
