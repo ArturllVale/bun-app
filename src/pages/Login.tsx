@@ -19,19 +19,23 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <h2>Login</h2>
-        {error && <p className="error-message">{error}</p>}
-        <div className="input-group">
-          <label>Usuário</label>
-          <input type="text" value={userid} onChange={(e) => setUserid(e.target.value)} />
+    <div className="row">
+      <div className="col-md-6 offset-md-3">
+        <div className="login-container">
+          <h2 className='pt-5'>Login</h2>
+          <div className="login-box mt-5">
+            {error && <p className="alert alert-warning">{error}</p>}
+            <div className="input-group">
+              <label>Usuário:</label>
+              <input type="text" value={userid} onChange={(e) => setUserid(e.target.value)} />
+            </div>
+            <div className="input-group">
+              <label>Senha:</label>
+              <input type="password" value={user_pass} onChange={(e) => setUserPass(e.target.value)} />
+            </div>
+            <button className="login-button" onClick={handleLogin}>Login</button>
+          </div>
         </div>
-        <div className="input-group">
-          <label>Senha:</label>
-          <input type="password" value={user_pass} onChange={(e) => setUserPass(e.target.value)} />
-        </div>
-        <button className="login-button" onClick={handleLogin}>Login</button>
       </div>
     </div>
   );

@@ -5,6 +5,8 @@ import App from './App';
 import { createRoot } from 'react-dom/client';
 import Menu from './components/Menu';
 import Register from './pages/Register';
+import Info from './pages/Info';
+import Downloads from './pages/Downloads';
 
 // Selecione o elemento raiz do seu aplicativo
 const container = document.getElementById('root');
@@ -20,6 +22,8 @@ if (container) {
         <Route path="/login" element={<Login />} />
         <Route path="/account" element={<Account />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/informacoes' element={<Info />} />
+        <Route path='/downloads' element={<Downloads />} />
       </Routes>
     </Router>
   );

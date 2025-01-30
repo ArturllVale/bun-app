@@ -60,79 +60,99 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div className="register-container">
-      <h2 className="text-center mb-4">Nova conta</h2>
-      <form onSubmit={handleSubmit} className="register-form">
-        <div className="mb-3">
-          <label className="form-label">Usuário:</label>
-          <input
-            type="text"
-            className="form-control"
-            value={userid}
-            onChange={(e) => setUserid(e.target.value)}
-            required
-          />
+    <div className="container">
+      <div className="row pt-5">
+        <div className="col-md-6">
+          <h2 className="mb-3">Criar uma nova conta</h2>
+          <form onSubmit={handleSubmit} className="register-form">
+            <div className="mb-2">
+              <label className="form-label">Usuário:</label>
+              <input
+                type="text"
+                className="form-control"
+                value={userid}
+                onChange={(e) => setUserid(e.target.value)}
+                required
+              />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Senha:</label>
+              <input
+                type="password"
+                className="form-control"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Confirmar Senha:</label>
+              <input
+                type="password"
+                className="form-control"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Email:</label>
+              <input
+                type="email"
+                className="form-control"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className="mb-2">
+              <label className="form-label">Sexo:</label>
+              <select
+                className="form-select"
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
+                required
+              >
+                <option value="M">Masculino</option>
+                <option value="F">Feminino</option>
+                <option value="S">Outros</option>
+              </select>
+            </div>
+            <div className="mb-2 form-check">
+              <input
+                type="checkbox"
+                className="form-check-input"
+                checked={acceptTerms}
+                onChange={(e) => setAcceptTerms(e.target.checked)}
+                required
+              />
+              <label className="form-check-label">Aceito os termos de registro</label>
+            </div>
+            <button type="submit" className="btn btn-primary w-100">Criar Nova Conta</button>
+          </form>
+          {showPopup && (
+            <div className="popup">
+              <p>Registro bem-sucedido! Redirecionando para o login...</p>
+            </div>
+          )}
         </div>
-        <div className="mb-3">
-          <label className="form-label">Senha:</label>
-          <input
-            type="password"
-            className="form-control"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+        <div className="col-md-6">
+          <h2 className="mb-3">Termos de Registro</h2>
+          <ul className='list-group py-4'>
+            <li className='list-group-item list-group-item-warning'><i className="bi bi-exclamation-diamond-fill"></i> O usuário e senha devem conter ao menos 4 caracteres.</li>
+            <li className='list-group-item list-group-item-warning'><i className="bi bi-exclamation-diamond-fill"></i> A senha deve conter letras e números.</li>
+            <li className='list-group-item list-group-item-warning'><i className="bi bi-exclamation-diamond-fill"></i> Digite um Email válido para poder deletar personagens.</li>
+            <li className='list-group-item list-group-item-danger'><i className="bi bi-x-octagon-fill"></i> É Proibido a divulgação de outros servidores. (Ban por IP)</li>
+            <li className='list-group-item list-group-item-danger'><i className="bi bi-x-octagon-fill"></i> É Proibido o uso de Macros ou Utilitários Externos.</li>
+            <li className='list-group-item list-group-item-danger'><i className="bi bi-x-octagon-fill"></i> É Proibido Dual Cliente.</li>
+            <li className='list-group-item list-group-item-danger'><i className="bi bi-x-octagon-fill"></i> É Proibido RMT fora do sistema.</li>
+            <li className='list-group-item list-group-item-success'><i className="bi bi-check-circle-fill"></i> Seja gentil e respeitoso com os outros.</li>
+            <li className='list-group-item list-group-item-success'><i className="bi bi-check-circle-fill"></i> Tire suas dúvidas no nosso Discord.</li>
+            <li className='list-group-item list-group-item-success'><i className="bi bi-check-circle-fill"></i> Faça novas amizades e explore conteúdos inéditos.</li>
+            <li className='list-group-item list-group-item-success'><i className="bi bi-check-circle-fill"></i> Consulte nosso guia para iniciar bem no servidor.</li>
+          </ul>
         </div>
-        <div className="mb-3">
-          <label className="form-label">Confirmar Senha:</label>
-          <input
-            type="password"
-            className="form-control"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Email:</label>
-          <input
-            type="email"
-            className="form-control"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Sexo:</label>
-          <select
-            className="form-select"
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
-            required
-          >
-            <option value="M">Masculino</option>
-            <option value="F">Feminino</option>
-            <option value="S">Outros</option>
-          </select>
-        </div>
-        <div className="mb-3 form-check">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            checked={acceptTerms}
-            onChange={(e) => setAcceptTerms(e.target.checked)}
-            required
-          />
-          <label className="form-check-label">Aceito os termos de registro</label>
-        </div>
-        <button type="submit" className="btn btn-primary w-100">Criar Nova Conta</button>
-      </form>
-      {showPopup && (
-        <div className="popup">
-          <p>Registro bem-sucedido! Redirecionando para o login...</p>
-        </div>
-      )}
+      </div>
     </div>
   );
 };

@@ -4,17 +4,17 @@ import axios from 'axios';
 import { handleLogout } from './Logout';
 
 const Menu: React.FC = () => {
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState<{ userid: string } | null>(null);
-  const [isCollapsed] = useState(() => {
-    return localStorage.getItem('isMenuCollapsed') === 'true';
-  });
+  const [isLoading, setIsLoading] = useState(true); // Novo estado para verificar se está carregando
 
   const updateLoginStatus = async () => {
     const token = localStorage.getItem('token');
     if (!token) {
       setIsLoggedIn(false);
       setUser(null);
+      setIsLoading(false); // Atualiza o estado de carregamento
       return;
     }
 
@@ -29,6 +29,8 @@ const Menu: React.FC = () => {
     } catch (error) {
       setIsLoggedIn(false);
       setUser(null);
+    } finally {
+      setIsLoading(false); // Atualiza o estado de carregamento
     }
   };
 
@@ -43,68 +45,19 @@ const Menu: React.FC = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (isCollapsed) {
-      document.body.classList.add('menu-collapsed');
-      document.getElementById('wrapper')?.classList.add('toggled');
-      document.querySelectorAll('#icon-size').forEach(icon => {
-        icon.classList.add('icon-sized');
-      });
-      document.getElementById('botao-menu')?.classList.add('toggled');
-      document.querySelectorAll('.menu-text').forEach(text => {
-        text.classList.add('hidden');
-      });
-    } else {
-      document.body.classList.remove('menu-collapsed');
-      document.getElementById('wrapper')?.classList.remove('toggled');
-      document.querySelectorAll('#icon-size').forEach(icon => {
-        icon.classList.remove('icon-sized');
-      });
-      document.getElementById('botao-menu')?.classList.remove('toggled');
-      document.querySelectorAll('.menu-text').forEach(text => {
-        text.classList.remove('hidden');
-      });
-    }
-  }, [isCollapsed]);
-
-  // const toggleMenu = () => {
-  //   const newCollapsedState = !isCollapsed;
-  //   setIsCollapsed(newCollapsedState);
-  //   localStorage.setItem('isMenuCollapsed', newCollapsedState.toString());
-
-  //   document.getElementById('wrapper')?.classList.toggle('toggled', newCollapsedState);
-  //   document.querySelectorAll('#icon-size').forEach(icon => {
-  //     icon.classList.toggle('icon-sized', newCollapsedState);
-  //   });
-  //   const botaoMenu = document.getElementById('botao-menu');
-
-  //   if (botaoMenu) {
-  //     botaoMenu.classList.toggle('toggled', newCollapsedState);
-  //     const icon = botaoMenu.querySelector('i'); // Seleciona o ícone dentro do botão
-  //     if (icon) {
-  //       icon.classList.toggle('fa-times', !newCollapsedState);
-  //       icon.classList.toggle('fa-bars', newCollapsedState);
-  //     }
-  //   }
-
-  //   // Ocultar ou mostrar o texto do menu
-  //   document.querySelectorAll('.menu-text').forEach(text => {
-  //     text.classList.toggle('hidden', newCollapsedState);
-  //   });
-  // };
-
   const getLinkClass = (path: string) => {
     return window.location.pathname === path ? 'active' : '';
   };
+
+  if (isLoading) {
+    return null; // Não renderiza nada enquanto está carregando
+  }
 
   return (
     <div>
       <div id="sidebar-wrapper">
         <ul className="sidebar-nav">
           <li className="sidebar-brand text-white">
-            {/* <button className="btn btn-primary" id='botao-menu' type="button" onClick={toggleMenu}>
-              <i className={`fas ${isCollapsed ? 'fa-bars' : 'fa-times'}`}></i>
-            </button> */}
             MeuRO
           </li>
           <hr />
