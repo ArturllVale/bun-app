@@ -1,14 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link, useLocation } from 'react-router-dom'; // Importe Link e useLocation
 import { handleLogout } from './Logout';
 
 const Menu: React.FC = () => {
-
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState<{ userid: string } | null>(null);
-  const [isLoading, setIsLoading] = useState(true); // Novo estado para verificar se está carregando
+  const [isLoading, setIsLoading] = useState(true); // Estado para verificar se está carregando
 
+  const location = useLocation(); // Monitora o caminho atual da rota
+
+  // Função para verificar o status de login
   const updateLoginStatus = async () => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -17,7 +20,6 @@ const Menu: React.FC = () => {
       setIsLoading(false); // Atualiza o estado de carregamento
       return;
     }
-
     try {
       const response = await axios.get('http://localhost:3000/minha-conta', {
         headers: {
@@ -34,62 +36,94 @@ const Menu: React.FC = () => {
     }
   };
 
+  // Verifica o status de login ao montar o componente
   useEffect(() => {
     updateLoginStatus();
   }, []);
 
+  // Monitora mudanças no localStorage para atualizar o status de login
   useEffect(() => {
-    window.addEventListener('storage', updateLoginStatus);
+    const handleStorageChange = (event: StorageEvent) => {
+      if (event.key === 'token') {
+        updateLoginStatus();
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
     return () => {
-      window.removeEventListener('storage', updateLoginStatus);
+      window.removeEventListener('storage', handleStorageChange);
     };
   }, []);
 
+  // Função para determinar a classe CSS do link ativo
   const getLinkClass = (path: string) => {
-    return window.location.pathname === path ? 'active' : '';
+    return location.pathname === path ? 'active' : '';
   };
 
+  // Não renderiza nada enquanto está carregando
   if (isLoading) {
-    return null; // Não renderiza nada enquanto está carregando
+    return null;
   }
 
   return (
     <div>
       <div id="sidebar-wrapper">
         <ul className="sidebar-nav">
-          <li className="sidebar-brand text-white">
-            MeuRO
-          </li>
+          <li className="sidebar-brand text-white">MeuRO</li>
           <hr />
           <li>
-            <a href="/" className={getLinkClass('/')}><i className="bi bi-house-fill icon-link" id='icon-size'></i> <span className="menu-text">Início</span></a>
+            <Link to="/" className={getLinkClass('/')}>
+              <i className="bi bi-house-fill icon-link" id="icon-size"></i>
+              <span className="menu-text">Início</span>
+            </Link>
           </li>
           <li>
-            <a href="/informacoes" className={getLinkClass('/informacoes')}><i className="bi bi-info-square-fill icon-link" id='icon-size'></i> <span className="menu-text">Informações</span></a>
+            <Link to="/informacoes" className={getLinkClass('/informacoes')}>
+              <i className="bi bi-info-square-fill icon-link" id="icon-size"></i>
+              <span className="menu-text">Informações</span>
+            </Link>
           </li>
           <li>
-            <a href="/downloads" className={getLinkClass('/downloads')}><i className="bi bi-cloud-arrow-down-fill icon-link" id='icon-size'></i> <span className="menu-text">Downloads</span></a>
+            <Link to="/downloads" className={getLinkClass('/downloads')}>
+              <i className="bi bi-cloud-arrow-down-fill icon-link" id="icon-size"></i>
+              <span className="menu-text">Downloads</span>
+            </Link>
           </li>
           <li>
-            <a href="/wiki" className={getLinkClass('/wiki')}><i className="bi bi-wikipedia icon-link" id='icon-size'></i> <span className="menu-text">Wiki</span></a>
+            <Link to="/wiki" className={getLinkClass('/wiki')}>
+              <i className="bi bi-wikipedia icon-link" id="icon-size"></i>
+              <span className="menu-text">Wiki</span>
+            </Link>
           </li>
-          <hr className='linha' />
+          <hr className="linha" />
           {isLoggedIn && user ? (
             <>
               <li>
-                <a href="/account" className={getLinkClass('/account')}><i className="bi bi-person-circle icon-link" id='icon-size'></i> <span className="menu-text">Minha Conta</span></a>
+                <Link to="/account" className={getLinkClass('/account')}>
+                  <i className="bi bi-person-circle icon-link" id="icon-size"></i>
+                  <span className="menu-text">Minha Conta</span>
+                </Link>
               </li>
               <li>
-                <a href="/login" onClick={handleLogout} className={getLinkClass('/login')}><i className="bi bi-box-arrow-in-left icon-link" id='icon-size'></i> <span className="menu-text">Logout</span></a>
+                <Link to="/login" onClick={handleLogout} className={getLinkClass('/login')}>
+                  <i className="bi bi-box-arrow-in-left icon-link" id="icon-size"></i>
+                  <span className="menu-text">Logout</span>
+                </Link>
               </li>
             </>
           ) : (
             <>
               <li>
-                <a href="/login" className={getLinkClass('/login')}><i className="bi bi-box-arrow-in-right icon-link" id='icon-size'></i> <span className="menu-text">Login</span></a>
+                <Link to="/login" className={getLinkClass('/login')}>
+                  <i className="bi bi-box-arrow-in-right icon-link" id="icon-size"></i>
+                  <span className="menu-text">Login</span>
+                </Link>
               </li>
               <li>
-                <a href="/register" className={getLinkClass('/register')}><i className="bi bi-person-fill-add icon-link" id='icon-size'></i> <span className="menu-text">Nova Conta</span></a>
+                <Link to="/register" className={getLinkClass('/register')}>
+                  <i className="bi bi-person-fill-add icon-link" id="icon-size"></i>
+                  <span className="menu-text">Nova Conta</span>
+                </Link>
               </li>
             </>
           )}
