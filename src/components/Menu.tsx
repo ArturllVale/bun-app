@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link, useLocation } from 'react-router-dom'; // Importe Link e useLocation
+import { Link, useLocation } from 'react-router-dom';
 import { handleLogout } from './Logout';
 
 const Menu: React.FC = () => {
@@ -17,7 +17,7 @@ const Menu: React.FC = () => {
     if (!token) {
       setIsLoggedIn(false);
       setUser(null);
-      setIsLoading(false); // Atualiza o estado de carregamento
+      setIsLoading(false);
       return;
     }
     try {
@@ -32,7 +32,7 @@ const Menu: React.FC = () => {
       setIsLoggedIn(false);
       setUser(null);
     } finally {
-      setIsLoading(false); // Atualiza o estado de carregamento
+      setIsLoading(false);
     }
   };
 
