@@ -1,38 +1,36 @@
 // Importação das bibliotecas necessárias
 import express, { Request, Response } from 'express';
 import { RequestHandler } from 'express';
-import { body, validationResult } from 'express-validator';
 import dotenv from 'dotenv';
-
-dotenv.config();
 import mysql from 'mysql2';
+import { body, validationResult } from 'express-validator';
 import cors from 'cors';
 import jwt from 'jsonwebtoken';
 
-// Criação da instância do aplicativo Express
+dotenv.config();
+
 const app = express();
+app.use(express.json());
+app.use(cors());
 
 const host = process.env.HOST;
 const database = process.env.DATABASE;
 
 console.log(`Connecting to database: ${database} at ${host}`);
 
-// Middleware para permitir requisições de diferentes origens
-app.use(cors());
-
-// Middleware para analisar o corpo das requisições como JSON
-app.use(express.json());
-
 // Configuração da conexão com o banco de dados MySQL
-const db = mysql.createConnection({
+const db = mysql.createPool({
   host: process.env.HOST,
   user: process.env.USER,
   password: process.env.PASSWORD,
   database: process.env.DATABASE,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
 });
 
-// Conexão com o banco de dados
-db.connect((err) => {
+// Teste de conexão com o banco de dados
+db.query('SELECT 1', (err) => {
   if (err) {
     console.error('Erro ao conectar ao banco de dados:', err);
     return;
@@ -82,8 +80,12 @@ const minhaContaHandler: RequestHandler = (req: Request, res: Response): void =>
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     res.json({ message: 'Bem-vindo à sua conta!', user: decoded });
   } catch (err) {
-    console.error('Erro ao verificar token:', err);
-    res.status(401).json({ error: 'Token inválido ou expirado' });
+    if (err.name === 'TokenExpiredError') {
+      res.status(401).json({ error: 'Token expirado' });
+    } else {
+      console.error('Erro ao verificar token:', err);
+      res.status(401).json({ error: 'Token inválido ou expirado' });
+    }
   }
 };
 
@@ -104,16 +106,18 @@ app.post(
       .matches(/[0-9]/)
       .withMessage('A senha deve conter números'),
     body('email').isEmail().withMessage('Email inválido'),
-    body('sex').isIn(['M', 'F', 'O']).withMessage('Sexo deve ser M, F ou O'),
+    body('sex').isIn(['M', 'F', 'S']).withMessage('Sexo deve ser M, F ou S'),
   ],
   async (req, res) => {
     // Verifica se há erros de validação
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+      console.log('Erros de validação:', errors.array());
       return res.status(400).json({ errors: errors.array() });
     }
 
     const { userid, user_pass, email, sex } = req.body;
+    console.log('Dados recebidos para registro:', { userid, user_pass, email, sex });
 
     try {
       // Verifica se o usuário ou email já estão registrados
@@ -121,6 +125,7 @@ app.post(
       const [results] = await db.promise().query<mysql.RowDataPacket[]>(checkUserQuery, [userid, email]);
 
       if (results.length > 0) {
+        console.log('Usuário ou Email já registrados:', results);
         return res.status(400).json({ error: 'Usuário ou Email já Registrados!' });
       }
 
@@ -135,6 +140,11 @@ app.post(
     }
   }
 );
+
+// Rota GET para informar que o método correto é POST
+app.get('/api/register', (req, res) => {
+  res.send('Use POST para registrar um novo usuário.');
+});
 
 // Porta em que o servidor estará rodando
 const PORT = 3000;

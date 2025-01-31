@@ -110,9 +110,9 @@ ul li {
   position: fixed;
   top: 20px;
   right: 20px;
-  background-color: #28a745;
-  color: #FFFFFF;
-  padding: 1rem;
+  background-color: #D1E7DD;
+  color: #0b3823;
+  padding: 12px 10px 0px 10px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   animation: fadeInOut 3s ease-in-out;
