@@ -1,6 +1,7 @@
 // Importação das bibliotecas necessárias
 import express, { Request, Response } from 'express';
 import { RequestHandler } from 'express';
+import { body, validationResult } from 'express-validator';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -99,38 +100,51 @@ const minhaContaHandler: RequestHandler = (req: Request, res: Response): void =>
 // Definição da rota protegida
 app.get('/minha-conta', minhaContaHandler);
 
-// Rota de registro
-app.post('/api/register', (req, res) => {
-  const { userid, user_pass, email, sex } = req.body;
-
-  if (!userid || !user_pass || !email || !sex) {
-    return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
-  }
-
-  if (user_pass.length < 8 || !/[a-zA-Z]/.test(user_pass) || !/[0-9]/.test(user_pass)) {
-    return res.status(400).json({ error: 'A senha deve ter pelo menos 8 caracteres e incluir letras e números' });
-  }
-
-  const checkUserQuery = 'SELECT * FROM login WHERE userid = ? OR email = ?';
-  db.query(checkUserQuery, [userid, email], (err, results: mysql.RowDataPacket[]) => {
-    if (err) {
-      return res.status(500).json({ error: 'Error checking user' });
+// Rota de registro com validação usando express-validator
+app.post(
+  '/api/register',
+  [
+    // Validação dos campos de entrada
+    body('userid').notEmpty().withMessage('User ID é obrigatório'),
+    body('user_pass')
+      .isLength({ min: 8 })
+      .withMessage('A senha deve ter pelo menos 8 caracteres')
+      .matches(/[a-zA-Z]/)
+      .withMessage('A senha deve conter letras')
+      .matches(/[0-9]/)
+      .withMessage('A senha deve conter números'),
+    body('email').isEmail().withMessage('Email inválido'),
+    body('sex').isIn(['M', 'F', 'O']).withMessage('Sexo deve ser M, F ou O'),
+  ],
+  async (req, res) => {
+    // Verifica se há erros de validação
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
     }
 
-    if (results.length > 0) {
-      return res.status(400).json({ error: 'Usuário ou Email já Registrados!' });
-    }
+    const { userid, user_pass, email, sex } = req.body;
 
-    const insertQuery = 'INSERT INTO login (userid, user_pass, email, sex) VALUES (?, ?, ?, ?)';
-    db.query(insertQuery, [userid, user_pass, email, sex], (err) => {
-      if (err) {
-        return res.status(500).json({ error: 'Erro ao registrar o usuário!' });
+    try {
+      // Verifica se o usuário ou email já estão registrados
+      const checkUserQuery = 'SELECT * FROM login WHERE userid = ? OR email = ?';
+      const [results] = await db.promise().query<mysql.RowDataPacket[]>(checkUserQuery, [userid, email]);
+
+      if (results.length > 0) {
+        return res.status(400).json({ error: 'Usuário ou Email já Registrados!' });
       }
 
+      // Insere o novo usuário no banco de dados (sem bcrypt)
+      const insertQuery = 'INSERT INTO login (userid, user_pass, email, sex) VALUES (?, ?, ?, ?)';
+      await db.promise().query(insertQuery, [userid, user_pass, email, sex]);
+
       return res.status(201).json({ message: 'Usuário registrado com sucesso!' });
-    });
-  });
-});
+    } catch (err) {
+      console.error('Erro ao registrar o usuário:', err);
+      return res.status(500).json({ error: 'Erro ao registrar o usuário!' });
+    }
+  }
+);
 
 // Porta em que o servidor estará rodando
 const PORT = 3000;
