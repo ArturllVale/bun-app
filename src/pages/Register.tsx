@@ -57,7 +57,7 @@ const Register: React.FC = () => {
 
   return (
     <div className="container">
-      <div className="row pt-5">
+      <div className="row pt-4">
         <div className="col-md-6">
           <h2 className="mb-3">Criar uma nova conta</h2>
           <form onSubmit={handleSubmit} className="register-form">

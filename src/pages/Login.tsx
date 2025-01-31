@@ -22,7 +22,7 @@ const Login: React.FC = () => {
     <div className="row">
       <div className="col-md-6 offset-md-3">
         <div className="login-container">
-          <h2 className='pt-5'>Login</h2>
+          <h2 className='pt-4'>Login</h2>
           <div className="login-box mt-5">
             {error && <p className="alert alert-warning">{error}</p>}
             <div className="input-group">
