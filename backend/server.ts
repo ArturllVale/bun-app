@@ -43,34 +43,24 @@ db.connect((err) => {
 // Rota de login
 app.post('/login', (req, res) => {
   const { userid, user_pass } = req.body;
-
-  // Consulta SQL para buscar o usuário pelo ID
   const query = 'SELECT * FROM login WHERE userid = ?';
   db.query(query, [userid], (err, results: mysql.RowDataPacket[]) => {
     if (err) {
       return res.status(500).json({ error: 'Erro ao buscar usuário' });
     }
-
     if (results.length === 0) {
       return res.status(401).json({ error: 'Usuário não encontrado' });
     }
-
     const user = results[0];
-
-    // Comparação direta da senha (sem bcrypt)
     if (user.user_pass !== user_pass) {
       return res.status(401).json({ error: 'Senha incorreta' });
     }
-
-    // Geração do token JWT
     if (!process.env.JWT_SECRET) {
       throw new Error('JWT_SECRET is not defined in the .env file');
     }
-
     const token = jwt.sign({ id: user.account_id, userid: user.userid }, process.env.JWT_SECRET, {
-      expiresIn: '1h', // Token expira em 1 hora
+      expiresIn: '1h',
     });
-
     return res.json({ token });
   });
 });
