@@ -309,3 +309,7 @@ h2 {
   border-bottom: 1px solid var(--link-hover-color);
   padding-bottom: 0.5rem;
 }
+
+.col-md-6 {
+  padding: 2px;
+}
