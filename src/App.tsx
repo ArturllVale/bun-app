@@ -89,8 +89,8 @@ export default function App(): JSX.Element {
                   />
                 ))}
                 <div className="slider-nav">
-                  <button onClick={prevSlide}>&lt;</button>
-                  <button onClick={nextSlide}>&gt;</button>
+                  <button onClick={prevSlide}>+</button>
+                  <button onClick={nextSlide}>+</button>
                 </div>
               </div>
               <div className="slider-description">
@@ -104,4 +104,3 @@ export default function App(): JSX.Element {
     </>
   );
 }
-

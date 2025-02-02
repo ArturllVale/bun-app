@@ -7,6 +7,7 @@ import Menu from './components/Menu';
 import Register from './pages/Register';
 import Info from './pages/Info';
 import Downloads from './pages/Downloads';
+import Footer from './components/Footer';
 
 // Selecione o elemento raiz do seu aplicativo
 const container = document.getElementById('root');
@@ -25,6 +26,7 @@ if (container) {
         <Route path='/informacoes' element={<Info />} />
         <Route path='/downloads' element={<Downloads />} />
       </Routes>
+      <Footer />
     </Router>
   );
 };

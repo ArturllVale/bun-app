@@ -480,4 +480,34 @@ h2 {
   }
 }
 
+/* Estilos para o rodapé */
+.footer {
+  background-color: var(--navbar-dark-primary);
+  color: #FFFFFF;
+  padding: 20px 20px 10px 22em;
+  margin: 0;
+}
 
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.footer-links li {
+  margin-right: 15px;
+}
+
+.footer-links li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-links li a:hover {
+  text-decoration: underline;
+}
+
+.fixed-bottom {
+    z-index: 999 !important;
+}
