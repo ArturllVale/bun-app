@@ -89,8 +89,8 @@ export default function App(): JSX.Element {
                   />
                 ))}
                 <div className="slider-nav">
-                  <button onClick={prevSlide}>+</button>
-                  <button onClick={nextSlide}>+</button>
+                  <button onClick={prevSlide}><i className="bi bi-caret-left"></i></button>
+                  <button onClick={nextSlide}><i className="bi bi-caret-right"></i></button>
                 </div>
               </div>
               <div className="slider-description">
