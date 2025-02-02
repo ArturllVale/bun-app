@@ -215,34 +215,6 @@ ul li {
   background: none;
 }
 
-@media (min-width: 768px) {
-  #wrapper {
-    padding-left: 230px;
-  }
-
-  #wrapper.toggled {
-    padding-left: 100px;
-  }
-
-  #sidebar-wrapper {
-    width: 240px;
-  }
-
-  #wrapper.toggled #sidebar-wrapper {
-    width: 100px;
-  }
-
-  #page-content-wrapper {
-    padding: 20px;
-    position: relative;
-  }
-
-  #wrapper.toggled #page-content-wrapper {
-    position: relative;
-    margin-right: 0;
-  }
-}
-
 #botao-menu {
   background-color: #d34f4f;
   border-color: #d34f4f;
@@ -384,7 +356,7 @@ h2 {
 }
 
 .slider-section {
-  padding: 60px 0;
+  width: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -392,18 +364,17 @@ h2 {
 
 .slider-container {
   display: flex;
-  width: 80%;
-  max-width: auto;
+  position: relative;
+  width: 500px;
+  height: 358px;
 }
 
 .slider {
-  flex: 1;
-  position: relative;
+
 }
 
 .slider img {
-  width: 100%;
-  height: auto;
+  border-radius: 8px;
   position: absolute;
   top: 0;
   left: 0;
@@ -419,6 +390,7 @@ h2 {
 .slider-description {
   flex: 1;
   padding: 2rem;
+  min-width: 500px;
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
@@ -440,7 +412,7 @@ h2 {
 .slider-nav {
   position: absolute;
   top: 50%;
-  width: 100%;
+  width: 500px;
   display: flex;
   justify-content: space-between;
   transform: translateY(-50%);
@@ -458,3 +430,54 @@ h2 {
 .slider-nav button:hover {
   color: var(--primary-color-hover);
 }
+
+@media (min-width: 768px) {
+  #wrapper {
+    padding-left: 230px;
+  }
+
+  #wrapper.toggled {
+    padding-left: 100px;
+  }
+
+  #sidebar-wrapper {
+    width: 240px;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    width: 100px;
+  }
+
+  #page-content-wrapper {
+    padding: 20px;
+    position: relative;
+  }
+
+  #wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 1281px) {
+  .slider-section {
+    margin-left: 10%;
+  }
+  .slider-container {
+    margin-left: -57%;
+  }
+}
+
+@media (max-width: 2000px) {
+  .slider-section {
+    margin-left: 40% !important;
+  }
+}
+
+@media (max-width: 2580px) {
+  .slider-section {
+    margin-left: 60%;
+  }
+}
+
+

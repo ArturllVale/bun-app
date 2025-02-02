@@ -2,22 +2,22 @@ import { useState, useEffect, useCallback } from 'react';
 
 export default function App(): JSX.Element {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slideInterval = 5000; // 5 segundos
+  const slideInterval = 10000; // 5 segundos
 
   const slides = [
     {
       image: '/img/img01.png', // Certifique-se de que o caminho está correto
-      title: 'Slide 1',
+      title: 'Novo sistema de classes',
       description: 'Descrição do Slide 1',
     },
     {
       image: '/img/img02.png', // Certifique-se de que o caminho está correto
-      title: 'Slide 2',
+      title: 'Eventos Únicos',
       description: 'Descrição do Slide 2',
     },
     {
       image: '/img/img03.png', // Certifique-se de que o caminho está correto
-      title: 'Slide 3',
+      title: 'Diversão Garantida',
       description: 'Descrição do Slide 3',
     },
   ];
@@ -71,29 +71,33 @@ export default function App(): JSX.Element {
       </div>
 
       {/* Seção Slider */}
-      <div className="slider-section">
-        <div className="slider-container">
-          <div className="slider">
-            {slides.map((slide, index) => (
-              <img
-                key={index}
-                src={slide.image}
-                alt={slide.title}
-                className={index === currentSlide ? 'active' : ''}
-                style={{
-                  opacity: index === currentSlide ? 1 : 0,
-                  transition: 'opacity 1s ease-in-out',
-                }}
-              />
-            ))}
-            <div className="slider-nav">
-              <button onClick={prevSlide}>&lt;</button>
-              <button onClick={nextSlide}>&gt;</button>
+      <div className="row">
+        <div className="col-md-6">
+          <div className="slider-section mb-5">
+            <div className="slider-container">
+              <div className="slider">
+                {slides.map((slide, index) => (
+                  <img
+                    key={index}
+                    src={slide.image}
+                    alt={slide.title}
+                    className={index === currentSlide ? 'active' : ''}
+                    style={{
+                      opacity: index === currentSlide ? 1 : 0,
+                      transition: 'opacity 1s ease-in-out',
+                    }}
+                  />
+                ))}
+                <div className="slider-nav">
+                  <button onClick={prevSlide}>&lt;</button>
+                  <button onClick={nextSlide}>&gt;</button>
+                </div>
+              </div>
+              <div className="slider-description">
+                <h3>{slides[currentSlide].title}</h3>
+                <p>{slides[currentSlide].description}</p>
+              </div>
             </div>
-          </div>
-          <div className="slider-description">
-            <h3>{slides[currentSlide].title}</h3>
-            <p>{slides[currentSlide].description}</p>
           </div>
         </div>
       </div>
