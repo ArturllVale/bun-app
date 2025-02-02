@@ -6,17 +6,17 @@ export default function App(): JSX.Element {
 
   const slides = [
     {
-      image: '/public/img/img01.png', // Certifique-se de que o caminho está correto
+      image: '/img/img01.png', // Certifique-se de que o caminho está correto
       title: 'Slide 1',
       description: 'Descrição do Slide 1',
     },
     {
-      image: '/public/img/img02.png', // Certifique-se de que o caminho está correto
+      image: '/img/img02.png', // Certifique-se de que o caminho está correto
       title: 'Slide 2',
       description: 'Descrição do Slide 2',
     },
     {
-      image: '/public/img/img03.png', // Certifique-se de que o caminho está correto
+      image: '/img/img03.png', // Certifique-se de que o caminho está correto
       title: 'Slide 3',
       description: 'Descrição do Slide 3',
     },
