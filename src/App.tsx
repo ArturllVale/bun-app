@@ -72,7 +72,7 @@ export default function App(): JSX.Element {
 
       {/* Seção Slider */}
       <div className="row">
-        <div className="col-md-6">
+        <div className="col">
           <div className="slider-section mb-5">
             <div className="slider-container">
               <div className="slider">
@@ -93,11 +93,13 @@ export default function App(): JSX.Element {
                   <button onClick={nextSlide}><i className="bi bi-caret-right"></i></button>
                 </div>
               </div>
-              <div className="slider-description">
-                <h3>{slides[currentSlide].title}</h3>
-                <p>{slides[currentSlide].description}</p>
-              </div>
             </div>
+          </div>
+        </div>
+        <div className="col align-self-start">
+          <div className="slider-description">
+            <h3>{slides[currentSlide].title}</h3>
+            <p>{slides[currentSlide].description}</p>
           </div>
         </div>
       </div>

@@ -23,7 +23,7 @@ hr {
     max-width: 78% !important;
     margin-left: 25px !important;
     margin-top: -10px !important;
-    color: #FFFFFF !important;
+    color: var(--link-color) !important;
 }
 
 .linha {
@@ -356,21 +356,19 @@ h2 {
 }
 
 .slider-section {
-  width: 500px;
+  width: auto;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
 }
 
 .slider-container {
   display: flex;
   position: relative;
-  width: 500px;
+  width: auto;
   height: 358px;
-}
-
-.slider {
-
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .slider img {
@@ -389,11 +387,9 @@ h2 {
 
 .slider-description {
   flex: 1;
-  padding: 2rem;
-  min-width: 500px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   transition: opacity 0.5s ease-in-out;
 }
 
@@ -459,31 +455,10 @@ h2 {
   }
 }
 
-@media (max-width: 1281px) {
-  .slider-section {
-    margin-left: 10%;
-  }
-  .slider-container {
-    margin-left: -57%;
-  }
-}
-
-@media (max-width: 2000px) {
-  .slider-section {
-    margin-left: 40% !important;
-  }
-}
-
-@media (max-width: 2580px) {
-  .slider-section {
-    margin-left: 60%;
-  }
-}
-
 /* Estilos para o rodapé */
 .footer {
   background-color: var(--navbar-dark-primary);
-  color: #FFFFFF;
+  color: var(--link-color);
   padding: 20px 20px 10px 22em;
   margin: 0;
 }
@@ -500,7 +475,7 @@ h2 {
 }
 
 .footer-links li a {
-  color: #fff;
+  color: var(--link-color);
   text-decoration: none;
 }
 
