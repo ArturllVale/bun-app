@@ -90,7 +90,7 @@ const Menu: React.FC = () => {
             </Link>
           </li>
           <li>
-            <Link to="/wiki" className={getLinkClass('/wiki')}>
+            <Link to="https://mundorag.notion.site/fa6b6bbf65ec43cf9321f6344630a700" target='_blank' className={getLinkClass('/wiki')}>
               <i className="bi bi-wikipedia icon-link" id="icon-size"></i>
               <span className="menu-text">Wiki</span>
             </Link>
