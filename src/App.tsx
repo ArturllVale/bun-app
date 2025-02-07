@@ -393,61 +393,83 @@ export default function App(): JSX.Element {
                   <thead>
                     <tr>
                       <th>Posição</th>
-                      <th>Nome</th>
-                      <th>Pontos</th>
+                      <th>Nome do Jogador</th>
+                      <th>Abates</th>
+                      <th>Mortes</th>
+                      <th>KDA</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td><i className="bi bi-award-fill text-warning"></i></td>
                       <td>Jogador 1</td>
-                      <td>1000</td>
+                      <td>100</td>
+                      <td>50</td>
+                      <td>2.0</td>
                     </tr>
                     <tr>
                       <td><i className="bi bi-award-fill text-secondary"></i></td>
                       <td>Jogador 2</td>
-                      <td>900</td>
+                      <td>90</td>
+                      <td>45</td>
+                      <td>2.0</td>
                     </tr>
                     <tr>
                       <td><i className="bi bi-award-fill text-danger"></i></td>
                       <td>Jogador 3</td>
-                      <td>800</td>
+                      <td>80</td>
+                      <td>40</td>
+                      <td>2.0</td>
                     </tr>
                     {/* ...posições 4 a 10... */}
                     <tr>
                       <td>4</td>
                       <td>Jogador 4</td>
-                      <td>700</td>
+                      <td>70</td>
+                      <td>35</td>
+                      <td>2.0</td>
                     </tr>
                     <tr>
                       <td>5</td>
                       <td>Jogador 5</td>
-                      <td>600</td>
+                      <td>60</td>
+                      <td>30</td>
+                      <td>2.0</td>
                     </tr>
                     <tr>
                       <td>6</td>
                       <td>Jogador 6</td>
-                      <td>500</td>
+                      <td>50</td>
+                      <td>25</td>
+                      <td>2.0</td>
                     </tr>
                     <tr>
                       <td>7</td>
                       <td>Jogador 7</td>
-                      <td>400</td>
+                      <td>40</td>
+                      <td>20</td>
+                      <td>2.0</td>
                     </tr>
                     <tr>
                       <td>8</td>
                       <td>Jogador 8</td>
-                      <td>300</td>
+                      <td>30</td>
+                      <td>15</td>
+                      <td>2.0</td>
                     </tr>
                     <tr>
                       <td>9</td>
                       <td>Jogador 9</td>
-                      <td>200</td>
+                      <td>20</td>
+                      <td>10</td>
+                      <td>2.0</td>
                     </tr>
                     <tr>
                       <td>10</td>
                       <td>Jogador 10</td>
-                      <td>100</td>
+                      <td>10</td>
+                      <td>5</td>
+                      <td>2.0</td>
                     </tr>
                   </tbody>
                 </table>
@@ -459,61 +481,72 @@ export default function App(): JSX.Element {
                   <thead className="thead-dark">
                     <tr>
                       <th>Posição</th>
-                      <th>Nome</th>
-                      <th>Pontos</th>
+                      <th>Nome da Guilda</th>
+                      <th>Vitórias</th>
+                      <th>Derrotas</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td><i className="bi bi-award-fill text-warning"></i></td>
                       <td>Guilda 1</td>
-                      <td>1000</td>
+                      <td>10</td>
+                      <td>2</td>
                     </tr>
                     <tr>
                       <td><i className="bi bi-award-fill text-secondary"></i></td>
                       <td>Guilda 2</td>
-                      <td>900</td>
+                      <td>9</td>
+                      <td>3</td>
                     </tr>
                     <tr>
                       <td><i className="bi bi-award-fill text-danger"></i></td>
                       <td>Guilda 3</td>
-                      <td>800</td>
+                      <td>8</td>
+                      <td>4</td>
                     </tr>
                     {/* ...posições 4 a 10... */}
                     <tr>
                       <td>4</td>
                       <td>Guilda 4</td>
-                      <td>700</td>
+                      <td>7</td>
+                      <td>5</td>
                     </tr>
                     <tr>
                       <td>5</td>
                       <td>Guilda 5</td>
-                      <td>600</td>
+                      <td>6</td>
+                      <td>6</td>
                     </tr>
                     <tr>
                       <td>6</td>
                       <td>Guilda 6</td>
-                      <td>500</td>
+                      <td>5</td>
+                      <td>7</td>
                     </tr>
                     <tr>
                       <td>7</td>
                       <td>Guilda 7</td>
-                      <td>400</td>
+                      <td>4</td>
+                      <td>8</td>
                     </tr>
                     <tr>
                       <td>8</td>
                       <td>Guilda 8</td>
-                      <td>300</td>
+                      <td>3</td>
+                      <td>9</td>
                     </tr>
                     <tr>
                       <td>9</td>
                       <td>Guilda 9</td>
-                      <td>200</td>
+                      <td>2</td>
+                      <td>10</td>
                     </tr>
                     <tr>
                       <td>10</td>
                       <td>Guilda 10</td>
-                      <td>100</td>
+                      <td>1</td>
+                      <td>11</td>
                     </tr>
                   </tbody>
                 </table>
