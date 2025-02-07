@@ -495,7 +495,6 @@ h2 {
 
 .card-master {
   padding-top: 5em;
-  padding-left: 1em !important;
 }
 
 .mb-5 {
@@ -508,9 +507,9 @@ h2 {
 
 .character-card {
   width: 320px; /* Largura fixa */
-  height: 500px; /* Altura fixa */
+  height: 420px; /* Altura fixa */
   text-align: center;
-  background: #f8f9fa;
+  background: linear-gradient(to bottom, #f8f9fa, #ffffff);
   padding: 20px;
   border-radius: 10px;
   position: relative;
@@ -520,9 +519,8 @@ h2 {
 }
 
 .character-img {
-  height: 420px; /* Aumenta um pouco a altura da imagem */
   position: absolute;
-  top: -100px; /* Move a imagem para cima, para transbordar do card */
+  top: -85px;
   left: 50%;
   transform: translateX(-50%);
 }
