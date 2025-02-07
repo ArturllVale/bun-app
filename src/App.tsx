@@ -194,7 +194,7 @@ export default function App(): JSX.Element {
       <div className="row py-4">
         <h2>Sistema de Classes Personalizado</h2>
         <div className='alert alert-warning'>
-          <p className='text-center'>Após renascer, você poderá escolher até 4 classes disponível para sua classe,
+          <p className='text-center'>Após renascer, você poderá escolher até 4 classes disponíveis,
             <span className='resalt'> lembrando que o servidor não tem uma terceira classe</span>, o que conheciam como terceira classe irá fazer
             parte das segundas classes, com isso, você poderá escolher até 4 classes para seu personagem.
           </p>
@@ -367,6 +367,294 @@ export default function App(): JSX.Element {
         </div>
       </div>
       {/* Fim da seção de informações */}
+
+      {/* Seção de Ranks */}
+      <div className="row py-4">
+        <h2 className='mb-5 mt-4'>Ranks</h2>
+        <div className='px-4 justify-content-center'>
+          <ul className="nav nav-tabs justify-content-center" id="rankTabs" role="tablist">
+            <li className="nav-item" role="presentation">
+              <button className="nav-link active" id="pvp-tab" data-bs-toggle="tab" data-bs-target="#pvp" type="button" role="tab" aria-controls="pvp" aria-selected="true">Rank PVP</button>
+            </li>
+            <li className="nav-item" role="presentation">
+              <button className="nav-link" id="gvg-tab" data-bs-toggle="tab" data-bs-target="#gvg" type="button" role="tab" aria-controls="gvg" aria-selected="false">Rank GvG</button>
+            </li>
+            <li className="nav-item" role="presentation">
+              <button className="nav-link" id="mvp-tab" data-bs-toggle="tab" data-bs-target="#mvp" type="button" role="tab" aria-controls="mvp" aria-selected="false">Rank MvP</button>
+            </li>
+            <li className="nav-item" role="presentation">
+              <button className="nav-link" id="atividades-tab" data-bs-toggle="tab" data-bs-target="#atividades" type="button" role="tab" aria-controls="atividades" aria-selected="false">Rank Atividades</button>
+            </li>
+          </ul>
+          <div className="tab-content" id="rankTabsContent">
+            <div className="tab-pane fade show active" id="pvp" role="tabpanel" aria-labelledby="pvp-tab">
+              <div className="table-responsive mx-auto" style={{ maxWidth: '600px' }}>
+                <table className="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>Posição</th>
+                      <th>Nome</th>
+                      <th>Pontos</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><i className="bi bi-award-fill text-warning"></i></td>
+                      <td>Jogador 1</td>
+                      <td>1000</td>
+                    </tr>
+                    <tr>
+                      <td><i className="bi bi-award-fill text-secondary"></i></td>
+                      <td>Jogador 2</td>
+                      <td>900</td>
+                    </tr>
+                    <tr>
+                      <td><i className="bi bi-award-fill text-danger"></i></td>
+                      <td>Jogador 3</td>
+                      <td>800</td>
+                    </tr>
+                    {/* ...posições 4 a 10... */}
+                    <tr>
+                      <td>4</td>
+                      <td>Jogador 4</td>
+                      <td>700</td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Jogador 5</td>
+                      <td>600</td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>Jogador 6</td>
+                      <td>500</td>
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td>Jogador 7</td>
+                      <td>400</td>
+                    </tr>
+                    <tr>
+                      <td>8</td>
+                      <td>Jogador 8</td>
+                      <td>300</td>
+                    </tr>
+                    <tr>
+                      <td>9</td>
+                      <td>Jogador 9</td>
+                      <td>200</td>
+                    </tr>
+                    <tr>
+                      <td>10</td>
+                      <td>Jogador 10</td>
+                      <td>100</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div className="tab-pane fade" id="gvg" role="tabpanel" aria-labelledby="gvg-tab">
+              <div className="table-responsive mx-auto" style={{ maxWidth: '600px' }}>
+                <table className="table table-striped table-hover">
+                  <thead className="thead-dark">
+                    <tr>
+                      <th>Posição</th>
+                      <th>Nome</th>
+                      <th>Pontos</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><i className="bi bi-award-fill text-warning"></i></td>
+                      <td>Guilda 1</td>
+                      <td>1000</td>
+                    </tr>
+                    <tr>
+                      <td><i className="bi bi-award-fill text-secondary"></i></td>
+                      <td>Guilda 2</td>
+                      <td>900</td>
+                    </tr>
+                    <tr>
+                      <td><i className="bi bi-award-fill text-danger"></i></td>
+                      <td>Guilda 3</td>
+                      <td>800</td>
+                    </tr>
+                    {/* ...posições 4 a 10... */}
+                    <tr>
+                      <td>4</td>
+                      <td>Guilda 4</td>
+                      <td>700</td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Guilda 5</td>
+                      <td>600</td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>Guilda 6</td>
+                      <td>500</td>
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td>Guilda 7</td>
+                      <td>400</td>
+                    </tr>
+                    <tr>
+                      <td>8</td>
+                      <td>Guilda 8</td>
+                      <td>300</td>
+                    </tr>
+                    <tr>
+                      <td>9</td>
+                      <td>Guilda 9</td>
+                      <td>200</td>
+                    </tr>
+                    <tr>
+                      <td>10</td>
+                      <td>Guilda 10</td>
+                      <td>100</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div className="tab-pane fade" id="mvp" role="tabpanel" aria-labelledby="mvp-tab">
+              <div className="table-responsive mx-auto" style={{ maxWidth: '600px' }}>
+                <table className="table table-striped table-hover">
+                  <thead className="thead-dark">
+                    <tr>
+                      <th>Posição</th>
+                      <th>Nome</th>
+                      <th>Pontos</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><i className="bi bi-award-fill text-warning"></i></td>
+                      <td>Jogador 1</td>
+                      <td>1000</td>
+                    </tr>
+                    <tr>
+                      <td><i className="bi bi-award-fill text-secondary"></i></td>
+                      <td>Jogador 2</td>
+                      <td>900</td>
+                    </tr>
+                    <tr>
+                      <td><i className="bi bi-award-fill text-danger"></i></td>
+                      <td>Jogador 3</td>
+                      <td>800</td>
+                    </tr>
+                    {/* ...posições 4 a 10... */}
+                    <tr>
+                      <td>4</td>
+                      <td>Jogador 4</td>
+                      <td>700</td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Jogador 5</td>
+                      <td>600</td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>Jogador 6</td>
+                      <td>500</td>
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td>Jogador 7</td>
+                      <td>400</td>
+                    </tr>
+                    <tr>
+                      <td>8</td>
+                      <td>Jogador 8</td>
+                      <td>300</td>
+                    </tr>
+                    <tr>
+                      <td>9</td>
+                      <td>Jogador 9</td>
+                      <td>200</td>
+                    </tr>
+                    <tr>
+                      <td>10</td>
+                      <td>Jogador 10</td>
+                      <td>100</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div className="tab-pane fade" id="atividades" role="tabpanel" aria-labelledby="atividades-tab">
+              <div className="table-responsive mx-auto" style={{ maxWidth: '600px' }}>
+                <table className="table table-striped table-hover">
+                  <thead className="thead-dark">
+                    <tr>
+                      <th>Posição</th>
+                      <th>Nome</th>
+                      <th>Pontos</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><i className="bi bi-award-fill text-warning"></i></td>
+                      <td>Jogador 1</td>
+                      <td>1000</td>
+                    </tr>
+                    <tr>
+                      <td><i className="bi bi-award-fill text-secondary"></i></td>
+                      <td>Jogador 2</td>
+                      <td>900</td>
+                    </tr>
+                    <tr>
+                      <td><i className="bi bi-award-fill text-danger"></i></td>
+                      <td>Jogador 3</td>
+                      <td>800</td>
+                    </tr>
+                    {/* ...posições 4 a 10... */}
+                    <tr>
+                      <td>4</td>
+                      <td>Jogador 4</td>
+                      <td>700</td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Jogador 5</td>
+                      <td>600</td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>Jogador 6</td>
+                      <td>500</td>
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td>Jogador 7</td>
+                      <td>400</td>
+                    </tr>
+                    <tr>
+                      <td>8</td>
+                      <td>Jogador 8</td>
+                      <td>300</td>
+                    </tr>
+                    <tr>
+                      <td>9</td>
+                      <td>Jogador 9</td>
+                      <td>200</td>
+                    </tr>
+                    <tr>
+                      <td>10</td>
+                      <td>Jogador 10</td>
+                      <td>100</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Fim da seção de Ranks */}
     </>
   );
 }
