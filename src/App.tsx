@@ -1,12 +1,28 @@
-
 import { useState, useEffect, useCallback } from 'react';
-import warrior from "/img/warrior.png";
-import mage from "/img/mage.png";
-import rogue from "/img/rogue.png";
-import paladin from "/img/paladin.png"; // Nova imagem
-import lorde from "/img/lorde.png"; // Nova imagem
-import cavrun from "/img/cavrun.png"; // Nova imagem
-import guardian from "/img/guardian.png"; // Nova imagem
+import paladin from "/img/paladin.png";
+import lorde from "/img/lorde.png";
+import cavrun from "/img/cavrun.png";
+import guardian from "/img/guardian.png";
+import bruxo from "/img/bruxo.png";
+import professor from "/img/professor.png";
+import arcano from "/img/arcano.png";
+import feiticeiro from "/img/feiticeiro.png";
+import atirador from "/img/atirador.png";
+import menestrel from "/img/menestrel.png";
+import sentinela from "/img/sentinela.png";
+import musa from "/img/musa.png";
+import algoz from "/img/algoz.png";
+import desordeiro from "/img/desordeiro.png";
+import sicario from "/img/sicario.png";
+import renegado from "/img/renegado.png";
+import sumoSacerdote from "/img/sumo_sacerdote.png";
+import mestre from "/img/mestres.png";
+import arcebispo from "/img/arcebispos.png";
+import shura from "/img/shura.png";
+import mestreFerreiro from "/img/mestreferreiro.png";
+import criador from "/img/criador.png";
+import mecanico from "/img/mecanico.png";
+import bioquimico from "/img/bioquimico.png";
 
 export default function App(): JSX.Element {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -44,20 +60,53 @@ export default function App(): JSX.Element {
   }, [nextSlide]);
 
   const characters = [
-    { image: warrior, name: "WARRIOR", description: "A strong and brave fighter, ready for battle." },
-    { image: mage, name: "MAGE", description: "A master of arcane arts, wielding powerful spells." },
-    { image: rogue, name: "ROGUE", description: "A stealthy assassin striking from the shadows." }
+    { image: bruxo, name: "BRUXO", description: "A strong and brave fighter, ready for battle." },
+    { image: professor, name: "PROFESSOR", description: "A master of arcane arts, wielding powerful spells." },
+    { image: arcano, name: "ARCANO", description: "A stealthy assassin striking from the shadows." },
+    { image: feiticeiro, name: "FEITICEIRO", description: "A stealthy assassin striking from the shadows." }
   ];
 
   const charactersCard2 = [
-    { image: paladin, name: "PALADINO", description: "A holy warrior with divine powers." },
     { image: lorde, name: "LORDE", description: "A nature guardian with shapeshifting abilities." },
+    { image: paladin, name: "PALADINO", description: "A holy warrior with divine powers." },
     { image: cavrun, name: "CAVALEIRO RÚNICO", description: "A master of ranged weapons and tracking." },
     { image: guardian, name: "GUARDIÃO", description: "A master of ranged weapons and tracking." }
   ];
 
+  const charactersCard3 = [
+    { image: atirador, name: "ATIRADOR DE ELITE", description: "A nature guardian with shapeshifting abilities." },
+    { image: menestrel, name: "MENESTREL/CIGANA", description: "A holy warrior with divine powers abilites." },
+    { image: sentinela, name: "SENTINELA", description: "A master of ranged weapons and tracking." },
+    { image: musa, name: "TROVADOR/MUSA", description: "A master of ranged weapons and tracking." }
+  ];
+
+  const charactersCard4 = [
+    { image: algoz, name: "ALGOZ", description: "A strong and brave fighter, ready for battle." },
+    { image: desordeiro, name: "DESORDEIRO", description: "A master of arcane arts, wielding powerful spells." },
+    { image: sicario, name: "SICÁRIO", description: "A stealthy assassin striking from the shadows." },
+    { image: renegado, name: "RENEGADO", description: "A stealthy assassin striking from the shadows." }
+  ];
+
+  const charactersCard5 = [
+    { image: sumoSacerdote, name: "SUMO SACERDOTE", description: "A nature guardian with shapeshifting abilities." },
+    { image: mestre, name: "MESTRE", description: "A holy warrior with divine powers." },
+    { image: arcebispo, name: "ARCEBISPO", description: "A master of ranged weapons and tracking." },
+    { image: shura, name: "SHURA", description: "A master of ranged weapons and tracking." }
+  ];
+
+  const charactersCard6 = [
+    { image: mestreFerreiro, name: "MESTRE FERREIRO", description: "A nature guardian with shapeshifting abilities." },
+    { image: criador, name: "CRIADOR", description: "A holy warrior with divine powers abilites." },
+    { image: mecanico, name: "MECÂNICO", description: "A master of ranged weapons and tracking." },
+    { image: bioquimico, name: "BIOQUÍMICO", description: "A master of ranged weapons and tracking." }
+  ];
+
   const [selectedCharacter, setSelectedCharacter] = useState(characters[0]);
   const [selectedCharacterCard2, setSelectedCharacterCard2] = useState(charactersCard2[0]);
+  const [selectedCharacterCard3, setSelectedCharacterCard3] = useState(charactersCard3[0]);
+  const [selectedCharacterCard4, setSelectedCharacterCard4] = useState(charactersCard4[0]);
+  const [selectedCharacterCard5, setSelectedCharacterCard5] = useState(charactersCard5[0]);
+  const [selectedCharacterCard6, setSelectedCharacterCard6] = useState(charactersCard6[0]);
 
   // useEffect(() => {
   //   const interval = setInterval(() => {
@@ -201,23 +250,23 @@ export default function App(): JSX.Element {
         <div className="col-md-4 text-center d-flex flex-column justify-content-center align-items-center rounded card-master">
           <h2 className='mb-5'>Arqueiro</h2>
           <div className="character-card">
-            <img src={selectedCharacter.image} className="character-img" alt={selectedCharacter.name} />
-            <h2 className='char-h2'>{selectedCharacter.name}</h2>
-            <p className='char-p'>{selectedCharacter.description}</p>
+            <img src={selectedCharacterCard3.image} className="character-img" alt={selectedCharacterCard3.name} />
+            <h2 className='char-h2'>{selectedCharacterCard3.name}</h2>
+            <p className='char-p'>{selectedCharacterCard3.description}</p>
             <div className="d-flex justify-content-center gap-2 mt-4">
-              {characters.map((char, index) => (
+              {charactersCard3.map((char, index) => (
                 <img
                   key={index}
                   src={char.image}
                   alt={char.name}
-                  onClick={() => setSelectedCharacter(char)}
-                  className={`rounded ${selectedCharacter.name === char.name ? "border border-primary" : ""}`}
+                  onClick={() => setSelectedCharacterCard3(char)}
+                  className={`rounded ${selectedCharacterCard3.name === char.name ? "border border-primary" : ""}`}
                   style={{
                     width: "60px",
                     height: "60px",
                     cursor: "pointer",
-                    filter: selectedCharacter.name === char.name ? "none" : "grayscale(100%)",
-                    opacity: selectedCharacter.name === char.name ? "1" : "0.5"
+                    filter: selectedCharacterCard3.name === char.name ? "none" : "grayscale(100%)",
+                    opacity: selectedCharacterCard3.name === char.name ? "1" : "0.5"
                   }}
                 />
               ))}
@@ -229,23 +278,23 @@ export default function App(): JSX.Element {
         <div className="col-md-4 text-center d-flex flex-column justify-content-center align-items-center rounded card-master">
           <h2 className='mb-5'>Gatuno</h2>
           <div className="character-card">
-            <img src={selectedCharacter.image} className="character-img" alt={selectedCharacter.name} />
-            <h2 className='char-h2'>{selectedCharacter.name}</h2>
-            <p className='char-p'>{selectedCharacter.description}</p>
+            <img src={selectedCharacterCard4.image} className="character-img" alt={selectedCharacterCard4.name} />
+            <h2 className='char-h2'>{selectedCharacterCard4.name}</h2>
+            <p className='char-p'>{selectedCharacterCard4.description}</p>
             <div className="d-flex justify-content-center gap-2 mt-4">
-              {characters.map((char, index) => (
+              {charactersCard4.map((char, index) => (
                 <img
                   key={index}
                   src={char.image}
                   alt={char.name}
-                  onClick={() => setSelectedCharacter(char)}
-                  className={`rounded ${selectedCharacter.name === char.name ? "border border-primary" : ""}`}
+                  onClick={() => setSelectedCharacterCard4(char)}
+                  className={`rounded ${selectedCharacterCard4.name === char.name ? "border border-primary" : ""}`}
                   style={{
                     width: "60px",
                     height: "60px",
                     cursor: "pointer",
-                    filter: selectedCharacter.name === char.name ? "none" : "grayscale(100%)",
-                    opacity: selectedCharacter.name === char.name ? "1" : "0.5"
+                    filter: selectedCharacterCard4.name === char.name ? "none" : "grayscale(100%)",
+                    opacity: selectedCharacterCard4.name === char.name ? "1" : "0.5"
                   }}
                 />
               ))}
@@ -257,23 +306,23 @@ export default function App(): JSX.Element {
         <div className="col-md-4 text-center d-flex flex-column justify-content-center align-items-center rounded card-master">
           <h2 className='mb-5'>Noviço</h2>
           <div className="character-card">
-            <img src={selectedCharacter.image} className="character-img" alt={selectedCharacter.name} />
-            <h2 className='char-h2'>{selectedCharacter.name}</h2>
-            <p className='char-p'>{selectedCharacter.description}</p>
+            <img src={selectedCharacterCard5.image} className="character-img" alt={selectedCharacterCard5.name} />
+            <h2 className='char-h2'>{selectedCharacterCard5.name}</h2>
+            <p className='char-p'>{selectedCharacterCard5.description}</p>
             <div className="d-flex justify-content-center gap-2 mt-4">
-              {characters.map((char, index) => (
+              {charactersCard5.map((char, index) => (
                 <img
                   key={index}
                   src={char.image}
                   alt={char.name}
-                  onClick={() => setSelectedCharacter(char)}
-                  className={`rounded ${selectedCharacter.name === char.name ? "border border-primary" : ""}`}
+                  onClick={() => setSelectedCharacterCard5(char)}
+                  className={`rounded ${selectedCharacterCard5.name === char.name ? "border border-primary" : ""}`}
                   style={{
                     width: "60px",
                     height: "60px",
                     cursor: "pointer",
-                    filter: selectedCharacter.name === char.name ? "none" : "grayscale(100%)",
-                    opacity: selectedCharacter.name === char.name ? "1" : "0.5"
+                    filter: selectedCharacterCard5.name === char.name ? "none" : "grayscale(100%)",
+                    opacity: selectedCharacterCard5.name === char.name ? "1" : "0.5"
                   }}
                 />
               ))}
@@ -285,23 +334,23 @@ export default function App(): JSX.Element {
         <div className="col-md-4 text-center d-flex flex-column justify-content-center align-items-center rounded card-master">
           <h2 className='mb-5'>Mercador</h2>
           <div className="character-card">
-            <img src={selectedCharacter.image} className="character-img" alt={selectedCharacter.name} />
-            <h2 className='char-h2'>{selectedCharacter.name}</h2>
-            <p className='char-p'>{selectedCharacter.description}</p>
+            <img src={selectedCharacterCard6.image} className="character-img" alt={selectedCharacterCard6.name} />
+            <h2 className='char-h2'>{selectedCharacterCard6.name}</h2>
+            <p className='char-p'>{selectedCharacterCard6.description}</p>
             <div className="d-flex justify-content-center gap-2 mt-4">
-              {characters.map((char, index) => (
+              {charactersCard6.map((char, index) => (
                 <img
                   key={index}
                   src={char.image}
                   alt={char.name}
-                  onClick={() => setSelectedCharacter(char)}
-                  className={`rounded ${selectedCharacter.name === char.name ? "border border-primary" : ""}`}
+                  onClick={() => setSelectedCharacterCard6(char)}
+                  className={`rounded ${selectedCharacterCard6.name === char.name ? "border border-primary" : ""}`}
                   style={{
                     width: "60px",
                     height: "60px",
                     cursor: "pointer",
-                    filter: selectedCharacter.name === char.name ? "none" : "grayscale(100%)",
-                    opacity: selectedCharacter.name === char.name ? "1" : "0.5"
+                    filter: selectedCharacterCard6.name === char.name ? "none" : "grayscale(100%)",
+                    opacity: selectedCharacterCard6.name === char.name ? "1" : "0.5"
                   }}
                 />
               ))}
