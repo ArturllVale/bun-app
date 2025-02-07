@@ -60,45 +60,45 @@ export default function App(): JSX.Element {
   }, [nextSlide]);
 
   const characters = [
-    { image: bruxo, name: "BRUXO", description: "A strong and brave fighter, ready for battle." },
-    { image: professor, name: "PROFESSOR", description: "A master of arcane arts, wielding powerful spells." },
-    { image: arcano, name: "ARCANO", description: "A stealthy assassin striking from the shadows." },
-    { image: feiticeiro, name: "FEITICEIRO", description: "A stealthy assassin striking from the shadows." }
+    { image: bruxo, name: "BRUXO", description: "Mestre das magias negras, controla o campo de batalha." },
+    { image: professor, name: "PROFESSOR", description: "Especialista em magias de suporte e controle." },
+    { image: arcano, name: "ARCANO", description: "Poderoso mago com habilidades destrutivas." },
+    { image: feiticeiro, name: "FEITICEIRO", description: "Manipulador de elementos, domina a magia." }
   ];
 
   const charactersCard2 = [
-    { image: lorde, name: "LORDE", description: "A nature guardian with shapeshifting abilities." },
-    { image: paladin, name: "PALADINO", description: "A holy warrior with divine powers." },
-    { image: cavrun, name: "CAVALEIRO RÚNICO", description: "A master of ranged weapons and tracking." },
-    { image: guardian, name: "GUARDIÃO", description: "A master of ranged weapons and tracking." }
+    { image: lorde, name: "LORDE", description: "Guerreiro de elite com habilidades de liderança." },
+    { image: paladin, name: "PALADINO", description: "Defensor sagrado, protege aliados com fé." },
+    { image: cavrun, name: "CAVALEIRO RÚNICO", description: "Cavaleiro que usa runas para aumentar seu poder." },
+    { image: guardian, name: "GUARDIÃO", description: "Protetor implacável, mestre em defesa absoluta." }
   ];
 
   const charactersCard3 = [
-    { image: atirador, name: "ATIRADOR DE ELITE", description: "A nature guardian with shapeshifting abilities." },
-    { image: menestrel, name: "MENESTREL/CIGANA", description: "A holy warrior with divine powers abilites." },
-    { image: sentinela, name: "SENTINELA", description: "A master of ranged weapons and tracking." },
-    { image: musa, name: "TROVADOR/MUSA", description: "A master of ranged weapons and tracking." }
+    { image: atirador, name: "ATIRADOR DE ELITE", description: "Especialista em combate à distância com precisão." },
+    { image: menestrel, name: "MENESTREL/CIGANA", description: "Usa músicas para apoiar e fortalecer aliados." },
+    { image: sentinela, name: "SENTINELA", description: "Arqueiro ágil, mestre em emboscadas e armadilhas." },
+    { image: musa, name: "TROVADOR/MUSA", description: "Encanta aliados e confunde inimigos com suas canções." }
   ];
 
   const charactersCard4 = [
-    { image: algoz, name: "ALGOZ", description: "A strong and brave fighter, ready for battle." },
-    { image: desordeiro, name: "DESORDEIRO", description: "A master of arcane arts, wielding powerful spells." },
-    { image: sicario, name: "SICÁRIO", description: "A stealthy assassin striking from the shadows." },
-    { image: renegado, name: "RENEGADO", description: "A stealthy assassin striking from the shadows." }
+    { image: algoz, name: "ALGOZ", description: "Assassino mortal, ataca com precisão letal." },
+    { image: desordeiro, name: "DESORDEIRO", description: "Ladrão ágil, mestre em furtividade e roubo." },
+    { image: sicario, name: "SICÁRIO", description: "Especialista em assassinatos rápidos e silenciosos." },
+    { image: renegado, name: "RENEGADO", description: "Lutador versátil, usa táticas sujas para vencer." }
   ];
 
   const charactersCard5 = [
-    { image: sumoSacerdote, name: "SUMO SACERDOTE", description: "A nature guardian with shapeshifting abilities." },
-    { image: mestre, name: "MESTRE", description: "A holy warrior with divine powers." },
-    { image: arcebispo, name: "ARCEBISPO", description: "A master of ranged weapons and tracking." },
-    { image: shura, name: "SHURA", description: "A master of ranged weapons and tracking." }
+    { image: sumoSacerdote, name: "SUMO SACERDOTE", description: "Curandeiro supremo, protege e cura aliados." },
+    { image: mestre, name: "MESTRE", description: "Monge poderoso, usa artes marciais e espiritualidade." },
+    { image: arcebispo, name: "ARCEBISPO", description: "Líder espiritual, combina cura e ataque divino." },
+    { image: shura, name: "SHURA", description: "Monge avançado, domina técnicas de combate corpo a corpo." }
   ];
 
   const charactersCard6 = [
-    { image: mestreFerreiro, name: "MESTRE FERREIRO", description: "A nature guardian with shapeshifting abilities." },
-    { image: criador, name: "CRIADOR", description: "A holy warrior with divine powers abilites." },
-    { image: mecanico, name: "MECÂNICO", description: "A master of ranged weapons and tracking." },
-    { image: bioquimico, name: "BIOQUÍMICO", description: "A master of ranged weapons and tracking." }
+    { image: mestreFerreiro, name: "MESTRE FERREIRO", description: "Forja armas poderosas e aprimora equipamentos." },
+    { image: criador, name: "CRIADOR", description: "Alquimista talentoso, cria poções e monstros." },
+    { image: mecanico, name: "MECÂNICO", description: "Engenheiro habilidoso, usa máquinas em combate." },
+    { image: bioquimico, name: "BIOQUÍMICO", description: "Cientista louco, usa química para destruir inimigos." }
   ];
 
   const [selectedCharacter, setSelectedCharacter] = useState(characters[0]);
@@ -155,6 +155,7 @@ export default function App(): JSX.Element {
 
       {/* Seção Slider */}
       <div className="row my-4">
+        <h2 className='mb-5'>Sistemas e Eventos</h2>
         <div className="col">
           <div className="slider-section mb-5">
             <div className="slider-container">
@@ -191,6 +192,13 @@ export default function App(): JSX.Element {
       {/* Seção de Informações */}
       {/* Personagens card 01 */}
       <div className="row py-4">
+        <h2>Sistema de Classes Personalizado</h2>
+        <div className='alert alert-warning'>
+          <p className='text-center'>Após renascer, você poderá escolher até 4 classes disponível para sua classe,
+            <span className='resalt'> lembrando que o servidor não tem uma terceira classe</span>, o que conheciam como terceira classe irá fazer
+            parte das segundas classes, com isso, você poderá escolher até 4 classes para seu personagem.
+          </p>
+        </div>
         <div className="col-md-4 text-center d-flex flex-column justify-content-center align-items-center rounded card-master">
           <h2 className='mb-5'>Mago</h2>
           <div className="character-card">
