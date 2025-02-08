@@ -370,7 +370,7 @@ export default function App(): JSX.Element {
 
       {/* Seção de Ranks */}
       <div className="row py-4">
-        <h2 className='mb-5 mt-4'>Ranks</h2>
+        <h2 className='mb-5 mt-4'>Top Ranks</h2>
         <div className='px-4 justify-content-center'>
           <ul className="nav nav-tabs justify-content-center" id="rankTabs" role="tablist">
             <li className="nav-item" role="presentation">

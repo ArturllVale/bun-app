@@ -59,7 +59,7 @@ ul li {
 .input-group input {
   width: 100%;
   padding: 0.5rem;
-  border: 1px solid var(--cor-branca);
+  border: 1px solid var(--cor-primaria);
   border-radius: 4px;
   font-size: 1rem;
 }
