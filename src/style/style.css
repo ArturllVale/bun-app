@@ -59,7 +59,7 @@ ul li {
 .input-group input {
   width: 100%;
   padding: 0.5rem;
-  border: 1px solid var(--cor-primaria);
+  border: 1px solid #CED4DA;
   border-radius: 4px;
   font-size: 1rem;
 }
@@ -322,7 +322,7 @@ h2 {
 }
 
 .section-text {
-  font-size: 1.2rem;
+  font-size: 2rem;
   color: var(--cor-primaria);
   margin-bottom: 2rem;
 }
@@ -357,8 +357,15 @@ h2 {
 }
 
 .feature-text {
-  font-size: 1rem;
-  color: var(--cor-primaria);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2dfa04;
+  letter-spacing: 1.5px;
+  background-color: var(--cor-primaria);
+  max-width: 100px;
+  border-radius: 8px;
+  justify-self: center;
+  padding: 4px 8px;
 }
 
 .slider-section {
@@ -394,6 +401,7 @@ h2 {
 .slider-description {
   flex: 1;
   padding: 10px;
+  height: 358px;
   display: flex;
   flex-direction: column;
   transition: opacity 0.5s ease-in-out;
@@ -589,4 +597,20 @@ h2 {
   position: sticky;
   top: 0;
   z-index: 1;
+}
+
+.btn-primary {
+  background-color: var(--cor-primaria) !important;
+  border: var(--cor-primaria) !important;
+  padding: 1em 2em !important;
+  font-size: 1.1em !important;
+  margin-top: 2em !important;
+}
+
+.border-primary {
+  border-color: var(--cor-primaria) !important;
+}
+
+.adjust {
+  margin-top: 0px !important;
 }

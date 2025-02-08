@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import paladin from "/img/paladin.png";
 import lorde from "/img/lorde.png";
 import cavrun from "/img/cavrun.png";
@@ -133,24 +134,27 @@ export default function App(): JSX.Element {
 
       {/* Nova Seção */}
       <div className="section my-4">
-        <p className="section-text">Descubra as incríveis funcionalidades que oferecemos.</p>
+        <p className="section-text">Descubra as principais métricas do servidor</p>
         <div className="features">
           <div className="feature-box">
-            <i className="bi bi-speedometer2 feature-icon"></i>
-            <h3 className="feature-title">Alta Velocidade</h3>
-            <p className="feature-text">Desfrute de uma experiência rápida e eficiente.</p>
-          </div>
-          <div className="feature-box">
-            <i className="bi bi-shield-lock feature-icon"></i>
-            <h3 className="feature-title">Segurança</h3>
-            <p className="feature-text">Seus dados estão seguros conosco.</p>
-          </div>
-          <div className="feature-box">
             <i className="bi bi-people feature-icon"></i>
-            <h3 className="feature-title">Comunidade</h3>
-            <p className="feature-text">Faça parte de uma comunidade vibrante.</p>
+            <h3 className="feature-title">Contas Criadas</h3>
+            <p className="feature-text">122</p>
+          </div>
+          <div className="feature-box">
+            <i className="bi bi-person-add feature-icon"></i>
+            <h3 className="feature-title">Personagens Criados</h3>
+            <p className="feature-text">1156</p>
+          </div>
+          <div className="feature-box">
+            <i className="bi bi-shield-shaded feature-icon"></i>
+            <h3 className="feature-title">Guildas Formadas</h3>
+            <p className="feature-text">25</p>
           </div>
         </div>
+        <Link to="/register">
+          <button type="button" className="btn btn-primary">Criar minha conta agora</button>
+        </Link>
       </div>
 
       {/* Seção Slider */}

@@ -124,7 +124,7 @@ const Register: React.FC = () => {
               />
               <label className="form-check-label">Aceito os termos de registro</label>
             </div>
-            <button type="submit" className="btn btn-primary w-100">Criar Nova Conta</button>
+            <button type="submit" className="btn btn-primary w-100 adjust">Criar Nova Conta</button>
           </form>
           {showPopup && (
             <div className="popup">
