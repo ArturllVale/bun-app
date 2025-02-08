@@ -293,7 +293,7 @@ h2 {
 }
 
 .hero {
-  background: url(../assets/bghero.png) no-repeat center center/cover;
+  background: url(../assets/bg.png) no-repeat center center/cover;
   height: 100vh;
   display: flex;
   justify-content: center;
