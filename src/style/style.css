@@ -3,7 +3,8 @@
 
 :root {
   --cor-branca: #ffffff;
-  --cor-primaria: #18283b;
+  --cor-primaria: #2B3D30;
+  /* --cor-primaria: #18283b; */
   --font-family: 'Roboto', sans-serif;
 }
 
@@ -305,6 +306,7 @@ h2 {
   background: url(/img/bg.png) no-repeat center center/cover;
   height: 100vh;
   padding-top: 16em;
+  padding-left: 0px !important;
   display: flex;
   justify-content: center;
   align-items: center;
