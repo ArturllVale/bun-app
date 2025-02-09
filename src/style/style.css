@@ -3,7 +3,7 @@
 
 :root {
   --cor-branca: #ffffff;
-  --cor-primaria: #2B3D30;
+  --cor-primaria: #40682a;
   /* --cor-primaria: #18283b; */
   --font-family: 'Roboto', sans-serif;
 }
@@ -234,6 +234,7 @@ ul li {
   height: 65px;
   font-size: 18px;
   line-height: 60px;
+  font-weight: 600;
 }
 
 .sidebar-nav > .sidebar-brand a {

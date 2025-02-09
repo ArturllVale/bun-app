@@ -69,7 +69,7 @@ const Menu: React.FC = () => {
     <div>
       <div id="sidebar-wrapper">
         <ul className="sidebar-nav">
-          <li className="sidebar-brand text-white">MeuRO</li>
+          <li className="sidebar-brand text-white">MundoRag</li>
           <hr />
           <li>
             <Link to="/" className={getLinkClass('/')}>
