@@ -13,6 +13,8 @@ body {
   background: var(--cor-branca);
   font-family: var(--font-family);
   overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--cor-primaria) var(--cor-branca);
 }
 
 hr {
@@ -292,9 +294,17 @@ h2 {
   padding: 2px;
 }
 
+.logo {
+  max-width: 444px;
+  position: relative;
+  margin-top: -450px;
+}
+
+
 .hero {
-  background: url(../assets/bg.png) no-repeat center center/cover;
+  background: url(/img/bg.png) no-repeat center center/cover;
   height: 100vh;
+  padding-top: 16em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -307,6 +317,15 @@ h2 {
 
 .hero-text {
   color: var(--cor-primaria);
+  font-size: 1.1em;
+}
+
+.card-hero {
+  background-color: var(--cor-branca);
+  opacity: 0.7;
+  padding: 3rem 3rem;
+  border-radius: 8px;
+  min-width: 700px;
 }
 
 .section {
@@ -343,8 +362,38 @@ h2 {
   text-align: center;
 }
 
+.feature-box2 {
+  background-color: var(--cor-branca);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  text-align: center;
+}
+
+.feature-box2 p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--cor-primaria);
+}
+
+.feature-box2 h3 {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: var(--cor-primaria);
+}
+
+.feature {
+  display: inline-flex;
+  justify-content: space-between;
+  min-width: 410px;
+}
+
 .feature-icon {
-  font-size: 3rem;
+  width: 6em;
+}
+
+.feature-icon2 {
+  width: 3em;
   color: var(--cor-primaria);
   margin-bottom: 1rem;
 }
@@ -607,10 +656,22 @@ h2 {
   margin-top: 2em !important;
 }
 
+.btn-danger {
+  padding: 1em 2em !important;
+  font-size: 1.1em !important;
+  margin-top: 2em !important;
+}
+
 .border-primary {
   border-color: var(--cor-primaria) !important;
 }
 
 .adjust {
   margin-top: 0px !important;
+}
+
+@media (min-width: 1500px) {
+  .card-hero {
+    max-width: 900px;
+  }
 }

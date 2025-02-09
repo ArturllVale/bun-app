@@ -125,9 +125,32 @@ export default function App(): JSX.Element {
       {/* Seção Hero */}
       <div className="row">
         <div className="hero">
-          <div className="col-md-6 offset-md-0">
-            <h1 className="hero-title">Bem-vindo ao nosso site!</h1>
-            <p className="hero-text">Faça login para acessar sua conta.</p>
+          <div className="col-md-6">
+            <div className='card-hero'>
+              <img className='logo' src="/img/logo.png" alt="" />
+              <h1 className="hero-title">Venha fazer parte dessa Aventura!</h1>
+              <p className="hero-text">Crie uma conta agora mesmo</p>
+              <div className='feature'>
+                <div className="feature-box2">
+                  <img className='feature-icon2' src="/img/swords.gif" alt="" />
+                  <h3>Pre-re Custom</h3>
+                  <p>270/120</p>
+                </div>
+                <div className="feature-box2">
+                  <img className='feature-icon2' src="/img/feather-pen.gif" alt="" />
+                  <h3>Episódio Custom</h3>
+                  <p>Conteúdos Exclusivos</p>
+                </div>
+              </div>
+              <div className='feature'>
+                <Link to="/register">
+                  <button type="button" className="btn btn-primary">NOVA CONTA</button>
+                </Link>
+                <Link to="/register">
+                  <button type="button" className="btn btn-danger">BAIXAR O JOGO</button>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -137,17 +160,17 @@ export default function App(): JSX.Element {
         <p className="section-text">Descubra as principais métricas do servidor</p>
         <div className="features">
           <div className="feature-box">
-            <i className="bi bi-people feature-icon"></i>
+            <img className='feature-icon' src="/img/user.gif" alt="" />
             <h3 className="feature-title">Contas Criadas</h3>
             <p className="feature-text">122</p>
           </div>
           <div className="feature-box">
-            <i className="bi bi-person-add feature-icon"></i>
+            <img className='feature-icon' src="/img/presentation.gif" alt="" />
             <h3 className="feature-title">Personagens Criados</h3>
             <p className="feature-text">1156</p>
           </div>
           <div className="feature-box">
-            <i className="bi bi-shield-shaded feature-icon"></i>
+            <img className='feature-icon' src="/img/shield.gif" alt="" />
             <h3 className="feature-title">Guildas Formadas</h3>
             <p className="feature-text">25</p>
           </div>
