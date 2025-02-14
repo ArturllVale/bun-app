@@ -1,4 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import paladin from "/img/paladin.png";
 import lorde from "/img/lorde.png";
@@ -120,6 +122,8 @@ export default function App(): JSX.Element {
   //   return () => clearInterval(interval);
   // }, [characters]);
 
+  AOS.init();
+
   return (
     <>
       {/* Seção Hero */}
@@ -127,7 +131,6 @@ export default function App(): JSX.Element {
         <div className="hero">
           <div className="col-md-6">
             <div className='card-hero'>
-              <img className='logo' src="/img/logo.png" alt="" />
               <h1 className="hero-title">Venha fazer parte dessa Aventura!</h1>
               <p className="hero-text">Crie uma conta agora mesmo</p>
               <div className='feature'>
@@ -159,17 +162,17 @@ export default function App(): JSX.Element {
       <div className="section my-4">
         <p className="section-text">Descubra as principais métricas do servidor</p>
         <div className="features">
-          <div className="feature-box">
+          <div className="feature-box" data-aos="fade-right">
             <img className='feature-icon' src="/img/user.gif" alt="" />
             <h3 className="feature-title">Contas Criadas</h3>
             <p className="feature-text">122</p>
           </div>
-          <div className="feature-box">
+          <div className="feature-box" data-aos="fade-down">
             <img className='feature-icon' src="/img/presentation.gif" alt="" />
             <h3 className="feature-title">Personagens Criados</h3>
             <p className="feature-text">1156</p>
           </div>
-          <div className="feature-box">
+          <div className="feature-box" data-aos="fade-left">
             <img className='feature-icon' src="/img/shield.gif" alt="" />
             <h3 className="feature-title">Guildas Formadas</h3>
             <p className="feature-text">25</p>
@@ -183,7 +186,7 @@ export default function App(): JSX.Element {
       {/* Seção Slider */}
       <div className="row my-4">
         <h2 className='mb-5'>Sistemas e Eventos</h2>
-        <div className="col">
+        <div className="col" data-aos="zoom-in">
           <div className="slider-section mb-5">
             <div className="slider-container">
               <div className="slider">
@@ -207,7 +210,7 @@ export default function App(): JSX.Element {
             </div>
           </div>
         </div>
-        <div className="col align-self-start">
+        <div className="col align-self-start" data-aos="zoom-in-up">
           <div className="slider-description">
             <h3>{slides[currentSlide].title}</h3>
             <p>{slides[currentSlide].description}</p>
@@ -218,7 +221,7 @@ export default function App(): JSX.Element {
 
       {/* Seção de Informações */}
       {/* Personagens card 01 */}
-      <div className="row py-4">
+      <div className="row py-4" data-aos="zoom-in-down">
         <h2>Sistema de Classes Personalizado</h2>
         <div className='alert alert-warning'>
           <p className='text-center'>Após renascer, você poderá escolher até 4 classes disponíveis,
@@ -396,7 +399,7 @@ export default function App(): JSX.Element {
       {/* Fim da seção de informações */}
 
       {/* Seção de Ranks */}
-      <div className="row py-4">
+      <div className="row py-4" data-aos="zoom-out">
         <h2 className='mb-5 mt-4'>Top Ranks</h2>
         <div className='px-4 justify-content-center'>
           <ul className="nav nav-tabs justify-content-center" id="rankTabs" role="tablist">

@@ -3,7 +3,7 @@
 
 :root {
   --cor-branca: #ffffff;
-  --cor-primaria: #40682a;
+  --cor-primaria: #5219A2;
   /* --cor-primaria: #18283b; */
   --font-family: 'Roboto', sans-serif;
 }
@@ -306,8 +306,8 @@ h2 {
 .hero {
   background: url(/img/bg.png) no-repeat center center/cover;
   height: 100vh;
-  padding-top: 16em;
   padding-left: 0px !important;
+  padding-right: 0px !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -324,12 +324,13 @@ h2 {
 }
 
 .card-hero {
-  background-color: var(--cor-branca);
-  opacity: 0.7;
-  padding: 3rem 3rem;
+  position: relative;
+  background-color: #d4d4d4; /* Fundo branco */
+  opacity: 0.8;
+  padding: 1rem;
   border-radius: 8px;
-  min-width: 700px;
 }
+
 
 .section {
   padding: 60px 0;
@@ -371,6 +372,8 @@ h2 {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 200px;
   text-align: center;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .feature-box2 p {
@@ -388,7 +391,12 @@ h2 {
 .feature {
   display: inline-flex;
   justify-content: space-between;
-  min-width: 410px;
+}
+
+.feature .btn {
+  width: 200px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .feature-icon {
@@ -678,3 +686,4 @@ h2 {
     max-width: 900px;
   }
 }
+
