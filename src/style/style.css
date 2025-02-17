@@ -689,6 +689,10 @@ h2 {
   margin-top: 2em !important;
 }
 
+.btn-primary:hover {
+  background-color: #45128b !important;
+}
+
 .btn-danger {
   padding: 1em 2em !important;
   font-size: 1.1em !important;
