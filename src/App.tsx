@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
 import AOS from 'aos';
-import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import paladin from "/img/paladin.png";
 import lorde from "/img/lorde.png";
@@ -186,8 +185,8 @@ export default function App(): JSX.Element {
       {/* Seção Slider */}
       <div className="row my-4">
         <h2 className='mb-5'>Sistemas e Eventos</h2>
-        <div className="col" data-aos="zoom-in">
-          <div className="slider-section mb-5">
+        <div className="col">
+          <div className="slider-section mb-5" data-aos="zoom-in">
             <div className="slider-container">
               <div className="slider">
                 {slides.map((slide, index) => (
@@ -210,8 +209,8 @@ export default function App(): JSX.Element {
             </div>
           </div>
         </div>
-        <div className="col align-self-start" data-aos="zoom-in-up">
-          <div className="slider-description">
+        <div className="col align-self-start">
+          <div className="slider-description" data-aos="zoom-in-up">
             <h3>{slides[currentSlide].title}</h3>
             <p>{slides[currentSlide].description}</p>
           </div>
@@ -221,9 +220,9 @@ export default function App(): JSX.Element {
 
       {/* Seção de Informações */}
       {/* Personagens card 01 */}
-      <div className="row py-4" data-aos="zoom-in-down">
+      <div className="row py-4">
         <h2>Sistema de Classes Personalizado</h2>
-        <div className='alert alert-warning'>
+        <div className='alert alert-warning' data-aos="zoom-in-down">
           <p className='text-center'>Após renascer, você poderá escolher até 4 classes disponíveis,
             <span className='resalt'> lembrando que o servidor não tem uma terceira classe</span>, o que conheciam como terceira classe irá fazer
             parte das segundas classes, com isso, você poderá escolher até 4 classes para seu personagem.
@@ -399,9 +398,9 @@ export default function App(): JSX.Element {
       {/* Fim da seção de informações */}
 
       {/* Seção de Ranks */}
-      <div className="row py-4" data-aos="zoom-out">
+      <div className="row py-4">
         <h2 className='mb-5 mt-4'>Top Ranks</h2>
-        <div className='px-4 justify-content-center'>
+        <div className='px-4 justify-content-center' data-aos="zoom-in">
           <ul className="nav nav-tabs justify-content-center" id="rankTabs" role="tablist">
             <li className="nav-item" role="presentation">
               <button className="nav-link active" id="pvp-tab" data-bs-toggle="tab" data-bs-target="#pvp" type="button" role="tab" aria-controls="pvp" aria-selected="true">Rank PVP</button>
