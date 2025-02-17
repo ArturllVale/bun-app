@@ -315,22 +315,43 @@ h2 {
 }
 
 .hero-title {
-  color: var(--cor-primaria);
+  color: var(--cor-branca);
+  font-size: 3em;
 }
 
 .hero-text {
-  color: var(--cor-primaria);
+  color: var(--cor-branca);
   font-size: 1.1em;
 }
 
 .card-hero {
   position: relative;
-  background-color: #d4d4d4; /* Fundo branco */
+  background-color: #101010; /* Fundo branco */
   opacity: 0.8;
   padding: 1rem;
   border-radius: 8px;
+  height: 100vh;
+  width: 100vw;
 }
 
+.sub-hero {
+  max-width: 800px;
+  justify-self: center;
+  padding-top: 20vh;
+}
+
+.text-green {
+  color: #2dfa04;
+  font-weight: 600;
+  background-color: #101010;
+  padding: 1px;
+  border-radius: 4px;
+}
+
+.destaque {
+  font-weight: 600;
+  text-shadow: #101010;
+}
 
 .section {
   padding: 60px 0;
@@ -374,6 +395,7 @@ h2 {
   text-align: center;
   margin-left: 5px;
   margin-right: 5px;
+  padding-top: 12px;
 }
 
 .feature-box2 p {
@@ -679,11 +701,5 @@ h2 {
 
 .adjust {
   margin-top: 0px !important;
-}
-
-@media (min-width: 1500px) {
-  .card-hero {
-    max-width: 900px;
-  }
 }
 

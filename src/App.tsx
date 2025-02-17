@@ -128,10 +128,11 @@ export default function App(): JSX.Element {
       {/* Seção Hero */}
       <div className="row">
         <div className="hero">
-          <div className="col-md-6">
+          <div className="col">
             <div className='card-hero'>
+              <div className='sub-hero'>
               <h1 className="hero-title">Venha fazer parte dessa Aventura!</h1>
-              <p className="hero-text">Crie uma conta agora mesmo</p>
+                <p className="hero-text">Estamos com <span className='text-green'>122</span> <span className='destaque'>Jogadores Online</span> no momento, crie uma conta e venha fazer parte dessa família.</p>
               <div className='feature'>
                 <div className="feature-box2">
                   <img className='feature-icon2' src="/img/swords.gif" alt="" />
@@ -151,6 +152,7 @@ export default function App(): JSX.Element {
                 <Link to="/register">
                   <button type="button" className="btn btn-danger">BAIXAR O JOGO</button>
                 </Link>
+              </div>
               </div>
             </div>
           </div>
