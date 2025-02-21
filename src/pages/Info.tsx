@@ -4,12 +4,12 @@ const Info = () => {
       <div className="row pt-4">
         <h2>Informações</h2>
         <p className="text-center">Atualizado em <strong className="enfase">21/02/2025</strong> - Confira as atualizações no Discord do Servidor</p>
-        <div className="col">
+        <div className="col-md-6">
           <figure className="table" data-aos="flip-left">
             <table>
               <tbody>
                 <tr>
-                  <th>👑 Level Máximo</th>
+                  <th style={{ width: 170 }}>👑 Level Máximo</th>
                   <td>270</td>
                 </tr>
                 <tr>
@@ -71,12 +71,12 @@ const Info = () => {
             </table>
           </figure>
         </div>
-        <div className="col">
+        <div className="col-md-6">
           <figure className="table" data-aos="flip-right">
             <table>
               <tbody>
                 <tr>
-                  <th>🔰 Eventos</th>
+                  <th style={{ width: 170 }}>🔰 Eventos</th>
                   <td>AOT<br />Devil Square<br />Arena de Caça<br />Poring Bomba</td>
                 </tr>
                 <tr>
