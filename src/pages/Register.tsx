@@ -60,7 +60,7 @@ const Register: React.FC = () => {
       <div className="row pt-4">
         <div className="col-md-6">
           <h2 className="mb-3">Criar uma nova conta</h2>
-          <form onSubmit={handleSubmit} className="register-form">
+          <form onSubmit={handleSubmit} className="register-form" data-aos="zoom-in-up">
             <div className="mb-2">
               <label className="form-label">Usuário:</label>
               <input
@@ -134,7 +134,7 @@ const Register: React.FC = () => {
         </div>
         <div className="col-md-6">
           <h2 className="mb-3">Termos de Registro</h2>
-          <ul className='list-group py-4'>
+          <ul className='list-group py-4' data-aos="zoom-in-down">
             <li className='list-group-item list-group-item-warning'>
               <i className="bi bi-exclamation-diamond-fill"></i> O usuário e senha devem conter ao menos 8 caracteres.
             </li>

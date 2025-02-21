@@ -23,7 +23,7 @@ const Login: React.FC = () => {
       <div className="col-md-6 offset-md-3">
         <div className="login-container">
           <h2 className='pt-4'>Login</h2>
-          <div className="login-box mt-5">
+          <div className="login-box mt-5" data-aos="flip-up">
             {error && <p className="alert alert-warning">{error}</p>}
             <div className="input-group">
               <label>Usuário:</label>

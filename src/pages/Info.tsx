@@ -5,7 +5,7 @@ const Info = () => {
         <h2>Informações</h2>
         <p className="text-center">Atualizado em <strong className="enfase">21/02/2025</strong> - Confira as atualizações no Discord do Servidor</p>
         <div className="col">
-          <figure className="table">
+          <figure className="table" data-aos="flip-left">
             <table>
               <tbody>
                 <tr>
@@ -72,7 +72,7 @@ const Info = () => {
           </figure>
         </div>
         <div className="col">
-          <figure className="table">
+          <figure className="table" data-aos="flip-right">
             <table>
               <tbody>
                 <tr>
