@@ -3,8 +3,7 @@
 
 :root {
   --cor-branca: #ffffff;
-  --cor-primaria: #5219A2;
-  /* --cor-primaria: #18283b; */
+  --cor-primaria: #022b58;
   --font-family: 'Roboto', sans-serif;
 }
 
@@ -690,7 +689,7 @@ h2 {
 }
 
 .btn-primary:hover {
-  background-color: #45128b !important;
+  background-color: #052953 !important;
 }
 
 .btn-danger {
@@ -707,3 +706,9 @@ h2 {
   margin-top: 0px !important;
 }
 
+.enfase {
+  color: var(--cor-branca);
+  background-color: var(--cor-primaria);
+  padding: 1px 6px;
+  border-radius: 2px;
+}
